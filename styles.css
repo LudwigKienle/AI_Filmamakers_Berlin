@@ -582,17 +582,12 @@ section {
 }
 
 .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 8.5vw, 6.5rem);
-    font-weight: 400;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    font-weight: 300;
     margin-bottom: 36px;
     letter-spacing: -0.02em;
-    line-height: 1.05;
-}
-
-.hero-title .text-gradient,
-.hero-title .text-gradient-warm {
-    font-style: italic;
+    line-height: 1.1;
 }
 
 .hero-subtitle {
@@ -846,9 +841,15 @@ section {
 }
 
 .feature-icon {
-    font-size: 2rem;
     margin-bottom: 14px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--accent-blue-dim);
+    color: var(--accent-blue);
 }
 
 .feature-card h3 {
