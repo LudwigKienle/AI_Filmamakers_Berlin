@@ -944,7 +944,7 @@ section {
 
 .showcase-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
 }
 
@@ -985,7 +985,33 @@ section {
 /* Removed .showcase-play styles as they are no longer needed for iframes */
 
 .showcase-info {
-    padding: 24px 26px;
+    padding: 22px 24px;
+}
+
+.creator-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.creator-profile img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-highlight);
+    flex-shrink: 0;
+}
+
+.creator-profile h3 {
+    font-size: 1.05rem;
+    margin-bottom: 2px;
+    color: var(--text-primary);
+}
+
+.creator-profile .showcase-role {
+    margin-bottom: 0;
 }
 
 .showcase-info h3 {
