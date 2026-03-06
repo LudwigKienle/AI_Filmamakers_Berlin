@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Filmmakers Berlin — Where AI Meets Cinema</title>
+    <meta name="description"
+        content="AI Filmmakers Berlin is a vibrant community of filmmakers and AI enthusiasts exploring the intersection of artificial intelligence and cinematic storytelling. Join our regular meetups in Berlin.">
+    <meta name="keywords"
+        content="AI Filmmakers, Berlin, Meetup, AI Film, Generative AI, Cinema, Filmmaking, Community">
+    <meta name="author" content="AI Filmmakers Berlin">
+    <meta property="og:title" content="AI Filmmakers Berlin — Where AI Meets Cinema">
+    <meta property="og:description"
+        content="Join Berlin's most exciting community at the intersection of AI and filmmaking. Regular meetups, screenings, and networking.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Film Grain Overlay -->
+    <div class="film-grain" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <img src="logo.png" alt="AI Filmmakers Berlin" class="logo-img">
+                <span class="logo-text">AI Filmmakers <span class="logo-accent">Berlin</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#showcase">Showcase</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#organizers">Organizers</a></li>
+                <li><a href="#join" class="nav-cta">Join Us</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="WhatsApp Video 2026-03-02 at 12.22.11.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
+            <div class="hero-gradient"></div>
+            <div class="hero-particles" id="heroParticles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge animate-fade-up">
+                <span class="badge-dot"></span>
+                Berlin's AI Film Community
+            </div>
+            <h1 class="hero-title animate-fade-up delay-1">
+                Where <span class="text-gradient">Artificial Intelligence</span> Meets <span
+                    class="text-gradient-warm">Cinema</span>
+            </h1>
+            <p class="hero-subtitle animate-fade-up delay-2">
+                A community of filmmakers, artists, and technologists exploring the future of storytelling through AI.
+                Join us for screenings, workshops, and meaningful exchanges.
+            </p>
+            <div class="hero-actions animate-fade-up delay-3">
+                <a href="#events" class="btn btn-primary">
+                    <span>Next Meetup</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+            <div class="hero-stats animate-fade-up delay-4">
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Attendees per Event</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Meetups Hosted</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">2024</span>
+                    <span class="stat-label">Founded</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Us</span>
+                <h2 class="section-title">The Intersection of <span class="text-gradient">AI</span> & <span
+                        class="text-gradient-warm">Film</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="about-lead">
+                        AI Filmmakers Berlin started as a small gathering of seven curious creators. Today, we're one of
+                        Germany's most vibrant communities at the intersection of artificial intelligence and cinema.
+                    </p>
+                    <p>
+                        Our meetups bring together filmmakers, AI researchers, visual artists, and storytellers to
+                        explore how generative AI is reshaping contemporary cinematic practice. From AI-generated short
+                        films to cutting-edge production workflows — we cover it all.
+                    </p>
+                    <p>
+                        What began in Berlin has inspired chapters in other German cities. Our community has grown
+                        organically through word of mouth, driven by a shared passion for the creative possibilities of
+                        AI in filmmaking.
+                    </p>
+                    <div class="about-image-wrapper"
+                        style="margin-top: 2rem; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);">
+                        <img src="WhatsApp Image 2026-03-02 at 12.21.59.jpeg" alt="AI Filmmakers Berlin Meetup"
+                            style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                <div class="about-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎥</div>
+                        <h3>Screenings</h3>
+                        <p>Watch and discuss the latest AI-generated short films and experimental works from our
+                            community members.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Networking</h3>
+                        <p>Connect with fellow creators, share workflows, and build collaborations in a supportive
+                            creative environment.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3>Workshops</h3>
+                        <p>Learn new techniques, tools, and approaches to AI filmmaking through hands-on sessions and
+                            talks.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Community</h3>
+                        <p>Be part of a growing movement that's defining how AI and human creativity come together in
+                            film.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Events</span>
+                <h2 class="section-title">Upcoming <span class="text-gradient">Meetups</span></h2>
+            </div>
+
+            <!-- Next Event -->
+            <div class="next-event">
+                <div class="event-glow"></div>
+                <div class="event-badge">Next Event</div>
+                <div class="event-content">
+                    <div class="event-date-block">
+                        <span class="event-month">TBA</span>
+                        <span class="event-day">—</span>
+                        <span class="event-year">2026</span>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="event-title">AI Filmmakers Berlin Meetup</h3>
+                        <div class="event-meta">
+                            <div class="event-meta-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <span>Berlin, Germany</span>
+                            </div>
+                            <div class="event-meta-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                                <span>Evening Event</span>
+                            </div>
+                        </div>
+                        <p class="event-description">Join us for an evening of AI film screenings, discussions about the
+                            latest tools and workflows, and networking with fellow AI filmmakers. Stay tuned for
+                            details!</p>
+                        <a href="#join" class="btn btn-primary">
+                            <span>Get Notified</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Events -->
+            <h3 class="subsection-title">Past Highlights</h3>
+            <div class="past-events-grid">
+                <div class="past-event-card">
+                    <div class="past-event-date">Berlinale Special</div>
+                    <h4>Berlinale Creator Session 2026</h4>
+                    <p>Special meetup at Potsdamer Platz in collaboration with Runway and ProSiebenSat.1, focusing on
+                        high-trust creative exchange and extended distribution logics.</p>
+                    <span class="past-event-tag">Special Event</span>
+                </div>
+                <div class="past-event-card">
+                    <div class="past-event-date">Regular Meetup</div>
+                    <h4>AI Short Film Night</h4>
+                    <p>Community screenings of AI-generated short films followed by in-depth discussions about creative
+                        workflows and techniques.</p>
+                    <span class="past-event-tag">Screening</span>
+                </div>
+                <div class="past-event-card">
+                    <div class="past-event-date">Workshop</div>
+                    <h4>Tools & Workflows</h4>
+                    <p>Hands-on exploration of the latest AI filmmaking tools — from text-to-video to style consistency
+                        techniques.</p>
+                    <span class="past-event-tag">Workshop</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Gallery -->
+    <section class="showcase" id="showcase">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Showcase</span>
+                <h2 class="section-title">Featured <span class="text-gradient">AI Films</span></h2>
+                <p class="section-subtitle">Works showcased at AI Filmmakers Berlin meetups by our talented community
+                    members.</p>
+            </div>
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <div class="showcase-thumbnail" id="thumb-mark">
+                        <div class="showcase-play">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h3>Mark Wachholz</h3>
+                        <span class="showcase-role">Award-winning AI Filmmaker & Writer</span>
+                        <p>Creator of multi-award-winning AI films like "Unblind" and "The Cinema That Never Was", with
+                            a 20-year background writing novels, games, and TV.</p>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-thumbnail" id="thumb-silvia">
+                        <div class="showcase-play">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h3>Silvia Nitsche</h3>
+                        <span class="showcase-role">Motion Designer & AI Filmmaker</span>
+                        <p>Presenter at "Voices of AI", exploring how artificial intelligence is applied in creative
+                            practice and motion design.</p>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-thumbnail" id="thumb-benjamin">
+                        <div class="showcase-play">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="showcase-info">
+                        <h3>Benjamin Chimoy</h3>
+                        <span class="showcase-role">GenAI Director, Founder & Curator</span>
+                        <p>Wim Wenders scholar and director of "KALA" and "BILAL". Focusing on authorship and creative
+                            decision-making beyond just AI tools.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Community</span>
+                <h2 class="section-title">A Growing <span class="text-gradient-warm">Movement</span></h2>
+            </div>
+            <div class="community-content">
+                <div class="community-text">
+                    <p class="community-lead">
+                        What started with seven curious minds has grown into one of Europe's most active AI filmmaking
+                        communities.
+                    </p>
+                    <p>
+                        Our members include professional filmmakers, VFX artists, AI researchers, creative
+                        technologists, and storytellers who are passionate about exploring how artificial intelligence
+                        can enhance and transform the art of filmmaking.
+                    </p>
+                    <p>
+                        We foster an inclusive environment where beginners and experts alike can share ideas, learn from
+                        each other, and push the boundaries of what's possible when AI and human creativity converge.
+                    </p>
+                </div>
+                <div class="community-stats-grid">
+                    <div class="community-stat-card">
+                        <div class="community-stat-icon">🎬</div>
+                        <span class="community-stat-number">50+</span>
+                        <span class="community-stat-label">Attendees per Event</span>
+                    </div>
+                    <div class="community-stat-card">
+                        <div class="community-stat-icon">🏙️</div>
+                        <span class="community-stat-number">Berlin</span>
+                        <span class="community-stat-label">Based & Growing</span>
+                    </div>
+                    <div class="community-stat-card">
+                        <div class="community-stat-icon">🇩🇪</div>
+                        <span class="community-stat-number">Nationwide</span>
+                        <span class="community-stat-label">Inspiring Chapters</span>
+                    </div>
+                    <div class="community-stat-card">
+                        <div class="community-stat-icon">🌐</div>
+                        <span class="community-stat-number">International</span>
+                        <span class="community-stat-label">Berlinale Connections</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizers Section -->
+    <section class="organizers" id="organizers">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Organizers</span>
+                <h2 class="section-title">Meet the <span class="text-gradient">Team</span></h2>
+            </div>
+            <div class="organizers-grid">
+                <div class="organizer-card">
+                    <div class="organizer-image" id="organizer-benjamin">
+                        <div class="organizer-image-placeholder">BC</div>
+                    </div>
+                    <div class="organizer-info">
+                        <h3>Benjamin Chimoy</h3>
+                        <span class="organizer-role">Founder & Curator</span>
+                        <p>Award-winning Berlin-based GenAI Director, screenwriter, and producer. Benjamin combines
+                            cinematic storytelling with AI-native filmmaking and is a creative partner for Runway. He
+                            previously worked with 3D, VR, and XR technologies at Zalando.</p>
+                    </div>
+                </div>
+                <div class="organizer-card">
+                    <div class="organizer-image" id="organizer-luki">
+                        <div class="organizer-image-placeholder">LE</div>
+                    </div>
+                    <div class="organizer-info">
+                        <h3>Luki Enle</h3>
+                        <span class="organizer-role">Co-Organizer</span>
+                        <p>Co-organizer of AI Filmmakers Berlin, dedicated to building the community and connecting
+                            filmmakers, technologists, and artists who are passionate about the future of AI-driven
+                            storytelling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join" id="join">
+        <div class="container">
+            <div class="join-card">
+                <div class="join-glow"></div>
+                <div class="join-content">
+                    <span class="section-tag">Join Us</span>
+                    <h2 class="join-title">Ready to Shape the Future of <span class="text-gradient">AI Cinema</span>?
+                    </h2>
+                    <p class="join-text">Whether you're an experienced filmmaker or just curious about AI — everyone is
+                        welcome. Join our community and be part of the conversation.</p>
+                    <div class="join-actions">
+                        <a href="https://lu.ma" class="btn btn-primary btn-large" target="_blank" rel="noopener">
+                            <span>Join on Luma</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="join-social">
+                        <span class="join-social-label">Follow us:</span>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube" target="_blank" rel="noopener">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z" />
+                                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter / X" target="_blank" rel="noopener">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect x="2" y="9" width="4" height="12" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="AI Filmmakers Berlin" class="logo-img">
+                    <span class="logo-text">AI Filmmakers <span class="logo-accent">Berlin</span></span>
+                </div>
+                <p class="footer-text">A community by filmmakers, for filmmakers — exploring the future of AI cinema in
+                    Berlin and beyond.</p>
+                <div class="footer-address">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Wildenbruchstr. 87, 12045 Berlin</span>
+                </div>
+                <div class="footer-divider"></div>
+                <p class="footer-copyright">&copy; 2026 AI Filmmakers Berlin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
