@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -27,10 +27,16 @@
     <!-- Page Loader -->
     <div class="page-loader" id="pageLoader">
         <div class="loader-content">
-            <img src="logo.png" alt="" class="loader-logo">
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
+            <div class="loader-line loader-line-top"></div>
+            <div class="loader-brand">
+                <img src="logo.png" alt="" class="loader-logo">
+                <div class="loader-text">
+                    <span class="loader-title">AI Filmmakers</span>
+                    <span class="loader-accent">Berlin</span>
+                </div>
             </div>
+            <div class="loader-tagline">Where AI Meets Cinema</div>
+            <div class="loader-line loader-line-bottom"></div>
         </div>
     </div>
 
@@ -63,11 +69,11 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="WhatsApp Video 2026-03-02 at 12.22.11.mp4" type="video/mp4">
-            </video>
-            <div class="hero-video-overlay"></div>
             <div class="hero-gradient"></div>
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="hero-mesh"></div>
             <div class="hero-particles" id="heroParticles"></div>
         </div>
         <div class="hero-content">
