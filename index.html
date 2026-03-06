@@ -24,6 +24,16 @@
 </head>
 
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <img src="logo.png" alt="" class="loader-logo">
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Film Grain Overlay -->
     <div class="film-grain" aria-hidden="true"></div>
 
@@ -267,8 +277,16 @@
                             title="Embedded post"></iframe>
                     </div>
                     <div class="showcase-info">
-                        <h3>Mark Wachholz</h3>
-                        <span class="showcase-role">Award-winning AI Filmmaker & Writer</span>
+                        <div class="creator-profile"
+                            style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                            <img src="Logos_Filmmaker/Mark Wachholz LinkedIn.jpeg" alt="Mark Wachholz"
+                                style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-highlight);">
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.12rem;">Mark Wachholz</h3>
+                                <span class="showcase-role" style="margin: 0;">Award-winning AI Filmmaker &
+                                    Writer</span>
+                            </div>
+                        </div>
                         <p>Creator of multi-award-winning AI films like "The Cinema That Never Was" and recently
                             "Céremony", which won the "Shared Trace" category at UnHuman Shorts for its fusion of human
                             imagination and AI co-creation.</p>
@@ -281,8 +299,15 @@
                             title="Embedded post"></iframe>
                     </div>
                     <div class="showcase-info">
-                        <h3>Silvia Nitsche</h3>
-                        <span class="showcase-role">Motion Designer & AI Filmmaker</span>
+                        <div class="creator-profile"
+                            style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                            <img src="Logos_Filmmaker/Silvia.jpeg" alt="Silvia Nitsche"
+                                style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-highlight);">
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.12rem;">Silvia Nitsche</h3>
+                                <span class="showcase-role" style="margin: 0;">Motion Designer & AI Filmmaker</span>
+                            </div>
+                        </div>
                         <p>Presenter at "Voices of AI", exploring how artificial intelligence is applied in creative
                             practice and motion design.</p>
                     </div>
@@ -294,11 +319,40 @@
                             title="Embedded post"></iframe>
                     </div>
                     <div class="showcase-info">
-                        <h3>Benjamin Chimoy</h3>
-                        <span class="showcase-role">GenAI Director, Founder & Curator</span>
+                        <div class="creator-profile"
+                            style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                            <img src="Logos_Filmmaker/Ben Chimoy LinkedIn.jpeg" alt="Benjamin Chimoy"
+                                style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-highlight);">
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.12rem;">Benjamin Chimoy</h3>
+                                <span class="showcase-role" style="margin: 0;">GenAI Director, Founder & Curator</span>
+                            </div>
+                        </div>
                         <p>Wim Wenders scholar and director of "KALA" and "BILAL". His recent AI short film premieres
                             explore the boundaries of copyright, creative intention, and the question: "When is it
                             yours?"</p>
+                    </div>
+                </div>
+                <!-- Esther Gronenborn Showcase -->
+                <div class="showcase-card">
+                    <div class="showcase-thumbnail" id="thumb-esther">
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7430915823789076480"
+                            height="100%" width="100%" frameborder="0" allowfullscreen=""
+                            title="Embedded post"></iframe>
+                    </div>
+                    <div class="showcase-info">
+                        <div class="creator-profile"
+                            style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+                            <img src="Logos_Filmmaker/Esther Gronenborn LinkedIn.jpeg" alt="Esther Gronenborn"
+                                style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-highlight);">
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.12rem;">Esther Gronenborn</h3>
+                                <span class="showcase-role" style="margin: 0;">Director & AI Filmmaker</span>
+                            </div>
+                        </div>
+                        <p>Exploring the intersection of AI and traditional filmmaking, questioning where creative
+                            ownership lies when technology acts as a collaborator in generating new visual
+                            possibilities.</p>
                     </div>
                 </div>
             </div>
@@ -367,17 +421,37 @@
                 <span class="section-tag">Founder</span>
                 <h2 class="section-title">Meet the <span class="text-gradient">Founder</span></h2>
             </div>
-            <div class="organizers-grid">
-                <div class="organizer-card">
-                    <div class="organizer-image" id="organizer-benjamin">
-                        <div class="organizer-image-placeholder">BC</div>
-                    </div>
-                    <div class="organizer-info">
-                        <h3>Benjamin Chimoy</h3>
-                        <span class="organizer-role">Founder & Curator</span>
-                        <p>Award-winning Berlin-based GenAI Director, screenwriter, and producer. Benjamin combines
-                            cinematic storytelling with AI-native filmmaking and is a creative partner for Runway. He
-                            previously worked with 3D, VR, and XR technologies at Zalando.</p>
+            <div class="founder-card">
+                <div class="organizer-image organizer-image-lg" id="organizer-benjamin">
+                    <img src="Logos_Filmmaker/Ben Chimoy LinkedIn.jpeg" alt="Benjamin Chimoy"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="organizer-info">
+                    <h3>Benjamin Chimoy</h3>
+                    <span class="organizer-role">Founder & Curator</span>
+                    <p>Award-winning Berlin-based GenAI Director, screenwriter, and producer. Benjamin combines
+                        cinematic storytelling with AI-native filmmaking and is a creative partner for Runway. He
+                        previously worked with 3D, VR, and XR technologies at Zalando.</p>
+                    <div class="founder-links">
+                        <a href="#" class="founder-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="#" class="founder-link" aria-label="Instagram" target="_blank" rel="noopener">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                            <span>Instagram</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -450,25 +524,77 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="logo.png" alt="AI Filmmakers Berlin" class="logo-img">
-                    <span class="logo-text">AI Filmmakers <span class="logo-accent">Berlin</span></span>
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <div class="footer-brand">
+                        <img src="logo.png" alt="AI Filmmakers Berlin" class="logo-img">
+                        <span class="logo-text">AI Filmmakers <span class="logo-accent">Berlin</span></span>
+                    </div>
+                    <p class="footer-text">A community by filmmakers, for filmmakers — exploring the future of AI cinema
+                        in
+                        Berlin and beyond.</p>
+                    <div class="footer-address">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <span>Wildenbruchstr. 87, 12045 Berlin</span>
+                    </div>
                 </div>
-                <p class="footer-text">A community by filmmakers, for filmmakers — exploring the future of AI cinema in
-                    Berlin and beyond.</p>
-                <div class="footer-address">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    <span>Wildenbruchstr. 87, 12045 Berlin</span>
+                <div class="footer-nav-col">
+                    <h4 class="footer-heading">Navigate</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#showcase">Showcase</a></li>
+                        <li><a href="#community">Community</a></li>
+                    </ul>
                 </div>
+                <div class="footer-connect-col">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z" />
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+                            </svg></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg></a>
+                        <a href="#" class="social-link" aria-label="X"><svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg></a>
+                    </div>
+                    <a href="#join" class="btn btn-primary btn-sm footer-cta">Join the Community</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <div class="footer-divider"></div>
                 <p class="footer-copyright">&copy; 2026 AI Filmmakers Berlin. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
 
     <script src="script.js"></script>
 </body>
