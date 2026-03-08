@@ -633,6 +633,19 @@ section {
     background: transparent;
 }
 
+/* ----- Newsletter Section ----- */
+.newsletter-section {
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.newsletter-label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
 .hero-stats {
     display: flex;
     justify-content: center;
