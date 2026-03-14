@@ -1957,17 +1957,37 @@ section {
     }
 
     .hero-notify {
-        margin-bottom: 56px;
-        padding: 20px;
+        margin-bottom: 40px;
+        padding: 16px;
+        border-radius: var(--radius-md);
+    }
+
+    .hero-notify-copy {
+        font-size: 0.88rem;
+        margin-bottom: 12px;
     }
 
     .notify-form {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        gap: 8px;
+        padding: 6px 6px 6px 14px;
+        border-radius: 14px;
+    }
+
+    .notify-form input {
+        font-size: 0.88rem;
+        padding: 8px 0;
     }
 
     .notify-form .btn {
-        width: 100%;
+        min-height: unset;
+        padding: 10px 18px;
+        font-size: 0.82rem;
+    }
+
+    .notify-disclaimer {
+        font-size: 0.76rem;
+        margin-top: 10px;
     }
 
     .hero-stats {
