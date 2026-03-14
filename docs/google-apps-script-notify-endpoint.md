@@ -52,12 +52,26 @@ Add these script properties before running the mailout:
 - `AIFB_EVENT_URL`
 - `AIFB_EVENT_DETAILS`
 
-Then run `sendNextEventAnnouncement()` from the Apps Script editor.
+Recommended order:
+
+1. Run `countActiveNotifySignups()` to see how many active recipients are currently stored.
+2. Run `sendTestNextEventAnnouncement('your@email.com')` to preview the exact email in your inbox.
+3. If the test looks correct, run `sendNextEventAnnouncement()` from the Apps Script editor.
 
 The script sends the email once per `AIFB_EVENT_KEY` and records:
 
 - `last_notified_event_key`
 - `last_notified_at`
+
+Example values:
+
+- `AIFB_EVENT_KEY`: `2026-04-meetup`
+- `AIFB_EVENT_SUBJECT`: `AI Filmmakers Berlin: next meetup is live`
+- `AIFB_EVENT_TITLE`: `AI Filmmakers Berlin Meetup`
+- `AIFB_EVENT_DATE`: `April 18, 2026, 7:00 PM`
+- `AIFB_EVENT_LOCATION`: `Berlin`
+- `AIFB_EVENT_URL`: `https://your-event-page.example`
+- `AIFB_EVENT_DETAILS`: `Screenings, conversation, and networking around AI-native filmmaking.`
 
 ## Notes
 

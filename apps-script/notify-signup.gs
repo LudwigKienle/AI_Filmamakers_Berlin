@@ -88,6 +88,49 @@ function sendNextEventAnnouncement() {
   console.log(`Sent ${sent} event announcement emails.`);
 }
 
+function sendTestNextEventAnnouncement(recipientEmail) {
+  const event = getEventConfig_();
+  const email = normalizeEmail_(recipientEmail || Session.getActiveUser().getEmail());
+
+  if (!isValidEmail_(email)) {
+    throw new Error('Pass a valid recipient email to sendTestNextEventAnnouncement(recipientEmail).');
+  }
+
+  MailApp.sendEmail({
+    to: email,
+    subject: event.subject,
+    htmlBody: buildEventEmailHtml_(event),
+    body: buildEventEmailText_(event),
+    name: 'AI Filmmakers Berlin'
+  });
+
+  console.log(`Sent test event email to ${email}.`);
+}
+
+function countActiveNotifySignups() {
+  const spreadsheet = getSpreadsheet_();
+  const sheet = getOrCreateSignupsSheet_(spreadsheet);
+  const rows = sheet.getDataRange().getValues();
+
+  if (rows.length < 2) {
+    console.log('Active signups: 0');
+    return 0;
+  }
+
+  const headers = rows[0];
+  const emailIndex = headers.indexOf('email');
+  const statusIndex = headers.indexOf('status');
+
+  const count = rows.slice(1).filter((row) => {
+    const email = String(row[emailIndex] || '').trim();
+    const status = String(row[statusIndex] || 'active').trim().toLowerCase();
+    return Boolean(email) && status === 'active';
+  }).length;
+
+  console.log(`Active signups: ${count}`);
+  return count;
+}
+
 function getPayload_(e) {
   if (e && e.postData && e.postData.contents) {
     try {
