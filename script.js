@@ -3,7 +3,7 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const GOOGLE_FORM_SUCCESS_MESSAGE = "You're on the list. We'll email you when the next event is confirmed.";
+    const notifyConfig = window.AIFB_CONFIG || {};
 
     // ----- Page Loader -----
     const pageLoader = document.getElementById('pageLoader');
@@ -178,40 +178,121 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----- Notify Form -----
     const notifyFrame = document.getElementById('notifySubmitFrame');
     const notifyForms = document.querySelectorAll('.notify-form');
-    let notifyFrameReady = false;
-    let activeNotifyForm = null;
+    const notifyDisclaimer = document.getElementById('notifyDisclaimer');
+    const joinStatusTitle = document.getElementById('joinStatusTitle');
+    const joinStatusText = document.getElementById('joinStatusText');
+    let activeNotifySubmission = null;
+    let notifySubmissionTimeout = null;
 
-    if (notifyFrame && notifyForms.length > 0) {
-        notifyFrame.addEventListener('load', () => {
-            if (!notifyFrameReady) {
-                notifyFrameReady = true;
-                return;
-            }
+    function setNotifyCopy(isLive) {
+        if (notifyDisclaimer) {
+            notifyDisclaimer.textContent = isLive
+                ? notifyDisclaimer.dataset.liveCopy || notifyDisclaimer.textContent
+                : notifyDisclaimer.dataset.fallbackCopy || notifyDisclaimer.textContent;
+        }
 
-            if (!activeNotifyForm) {
-                return;
-            }
+        if (joinStatusTitle) {
+            joinStatusTitle.textContent = isLive
+                ? joinStatusTitle.dataset.liveCopy || joinStatusTitle.textContent
+                : joinStatusTitle.dataset.fallbackCopy || joinStatusTitle.textContent;
+        }
 
-            const status = activeNotifyForm.parentElement.querySelector('.notify-status');
-            const button = activeNotifyForm.querySelector('button[type="submit"]');
-            const buttonLabel = button?.querySelector('span');
+        if (joinStatusText) {
+            joinStatusText.textContent = isLive
+                ? joinStatusText.dataset.liveCopy || joinStatusText.textContent
+                : joinStatusText.dataset.fallbackCopy || joinStatusText.textContent;
+        }
+    }
 
-            activeNotifyForm.reset();
+    function resetNotifySubmission(submission) {
+        if (!submission) {
+            return;
+        }
 
-            if (button) {
-                button.disabled = false;
-            }
+        const { button, buttonLabel } = submission;
 
-            if (buttonLabel) {
-                buttonLabel.textContent = 'Notify me';
-            }
+        if (button) {
+            button.disabled = false;
+        }
 
+        if (buttonLabel) {
+            buttonLabel.textContent = 'Notify me';
+        }
+    }
+
+    function openNotifyFallback(emailInput, status, button, buttonLabel, fallbackUrl, fallbackField) {
+        if (!fallbackUrl || !fallbackField) {
             if (status) {
-                status.textContent = GOOGLE_FORM_SUCCESS_MESSAGE;
-                status.dataset.state = 'success';
+                status.textContent = 'No signup fallback is configured yet.';
+                status.dataset.state = 'error';
             }
 
-            activeNotifyForm = null;
+            resetNotifySubmission({ button, buttonLabel });
+            return;
+        }
+
+        const prefilledUrl = new URL(fallbackUrl);
+        prefilledUrl.searchParams.set('usp', 'pp_url');
+        prefilledUrl.searchParams.set(fallbackField, emailInput.value);
+
+        if (buttonLabel) {
+            buttonLabel.textContent = 'Opening...';
+        }
+
+        if (status) {
+            status.textContent = 'Opening the current signup form with your email pre-filled...';
+            status.dataset.state = '';
+        }
+
+        const popup = window.open(prefilledUrl.toString(), '_blank', 'noopener,noreferrer');
+
+        if (!popup) {
+            window.location.assign(prefilledUrl.toString());
+            return;
+        }
+
+        resetNotifySubmission({ button, buttonLabel });
+    }
+
+    const notifyEndpoint = (notifyConfig.notifyEndpoint || '').trim();
+    const notifyFallbackUrl = (notifyConfig.notifyFallbackUrl || '').trim();
+    const notifyFallbackField = (notifyConfig.notifyGoogleFormField || '').trim();
+
+    setNotifyCopy(Boolean(notifyEndpoint));
+
+    if (notifyForms.length > 0) {
+        window.addEventListener('message', (event) => {
+            const payload = event.data;
+
+            if (
+                !payload ||
+                payload.type !== 'aifb-notify-result' ||
+                !activeNotifySubmission ||
+                event.source !== notifyFrame?.contentWindow
+            ) {
+                return;
+            }
+
+            window.clearTimeout(notifySubmissionTimeout);
+            notifySubmissionTimeout = null;
+
+            const submission = activeNotifySubmission;
+            const { form, status } = submission;
+
+            resetNotifySubmission(submission);
+
+            if (payload.ok) {
+                form.reset();
+                if (status) {
+                    status.textContent = payload.message || "You're on the list. We'll email you when the next event is confirmed.";
+                    status.dataset.state = 'success';
+                }
+            } else if (status) {
+                status.textContent = payload.message || 'We could not save your email right now.';
+                status.dataset.state = 'error';
+            }
+
+            activeNotifySubmission = null;
         });
 
         notifyForms.forEach(form => {
@@ -219,8 +300,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const button = form.querySelector('button[type="submit"]');
             const buttonLabel = button?.querySelector('span');
             const status = form.parentElement.querySelector('.notify-status');
+            const pageUrlInput = form.querySelector('input[name="pageUrl"]');
+            const fallbackField = emailInput?.dataset.fallbackField || notifyFallbackField;
 
             form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
                 if (!(emailInput instanceof HTMLInputElement)) {
                     return;
                 }
@@ -239,24 +324,81 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                activeNotifyForm = form;
-
-                if (button) {
-                    button.disabled = true;
-                }
-
-                if (buttonLabel) {
-                    buttonLabel.textContent = 'Saving...';
+                if (pageUrlInput instanceof HTMLInputElement) {
+                    pageUrlInput.value = window.location.href;
                 }
 
                 if (status) {
-                    status.textContent = 'Saving your email...';
+                    status.textContent = '';
                     status.dataset.state = '';
                 }
+
+                if (notifyEndpoint && notifyFrame) {
+                    activeNotifySubmission = {
+                        form,
+                        button,
+                        buttonLabel,
+                        status
+                    };
+
+                    if (button) {
+                        button.disabled = true;
+                    }
+
+                    if (buttonLabel) {
+                        buttonLabel.textContent = 'Saving...';
+                    }
+
+                    if (status) {
+                        status.textContent = 'Saving your email...';
+                        status.dataset.state = '';
+                    }
+
+                    window.clearTimeout(notifySubmissionTimeout);
+                    notifySubmissionTimeout = window.setTimeout(() => {
+                        if (activeNotifySubmission?.form !== form) {
+                            return;
+                        }
+
+                        resetNotifySubmission(activeNotifySubmission);
+
+                        if (status) {
+                            status.textContent = 'The signup endpoint did not confirm the save. Please try again.';
+                            status.dataset.state = 'error';
+                        }
+
+                        notifySubmissionTimeout = null;
+                        activeNotifySubmission = null;
+                    }, 12000);
+
+                    form.action = notifyEndpoint;
+                    form.method = 'POST';
+                    form.target = 'notifySubmitFrame';
+                    form.submit();
+                    return;
+                }
+
+                if (!notifyFallbackUrl) {
+                    if (status) {
+                        status.textContent = 'Signup is not configured yet.';
+                        status.dataset.state = 'error';
+                    }
+
+                    return;
+                }
+
+                openNotifyFallback(
+                    emailInput,
+                    status,
+                    button,
+                    buttonLabel,
+                    notifyFallbackUrl,
+                    fallbackField
+                );
             });
 
             emailInput?.addEventListener('input', () => {
-                if (status?.dataset.state === 'error') {
+                if (status) {
                     status.textContent = '';
                     status.dataset.state = '';
                 }

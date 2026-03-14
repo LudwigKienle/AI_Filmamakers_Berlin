@@ -91,17 +91,21 @@
             </p>
             <div class="hero-notify animate-fade-up delay-3" id="notify">
                 <p class="hero-notify-copy">Be the first to hear about the next AI Filmmakers Berlin event</p>
-                <form class="notify-form" id="notifyForm"
-                    action="https://docs.google.com/forms/d/e/1FAIpQLScEbTFRo4jJ_gNilo52wBdUdeyb-N3p6Nu50nl7EPJjesditQ/formResponse"
-                    method="POST" target="notifySubmitFrame">
+                <form class="notify-form" id="notifyForm">
                     <label class="sr-only" for="notifyEmail">Your email address</label>
-                    <input type="email" id="notifyEmail" name="entry.1248076398" placeholder="Your email address"
-                        autocomplete="email" inputmode="email" required>
+                    <input type="email" id="notifyEmail" name="email" placeholder="Your email address"
+                        autocomplete="email" inputmode="email" data-fallback-field="entry.1248076398" required>
+                    <input type="hidden" name="source" value="landing-page">
+                    <input type="hidden" name="pageUrl" value="">
                     <button type="submit" class="btn btn-primary">
                         <span>Notify me</span>
                     </button>
                 </form>
-                <p class="notify-disclaimer">No newsletter. Just a heads-up when the next event is confirmed.</p>
+                <p class="notify-disclaimer" id="notifyDisclaimer"
+                    data-live-copy="One-step signup is live. Your email is saved directly to the event notify list."
+                    data-fallback-copy="Temporary fallback: this opens the current signup form with your email pre-filled.">
+                    Temporary fallback: this opens the current signup form with your email pre-filled.
+                </p>
                 <p class="notify-status" id="notifyStatus" aria-live="polite"></p>
             </div>
             <div class="hero-stats animate-fade-up delay-4">
@@ -556,9 +560,16 @@
                 <div class="join-glow"></div>
                 <div class="join-content">
                     <span class="section-tag">Stay Updated</span>
-                    <h2 class="join-title">No newsletter. No dead-end event page.</h2>
-                    <p class="join-text">Drop your email once at the top of the page and we'll reach out when the next
-                        AI Filmmakers Berlin event is confirmed.</p>
+                    <h2 class="join-title" id="joinStatusTitle"
+                        data-live-copy="No newsletter. One-step event signup is live."
+                        data-fallback-copy="Direct signup is being connected.">
+                        Direct signup is being connected.
+                    </h2>
+                    <p class="join-text" id="joinStatusText"
+                        data-live-copy="Drop your email into the field above and it goes straight into the event notify list."
+                        data-fallback-copy="Until the one-step flow is live, the field at the top opens the current signup form with your email already filled in.">
+                        Until the one-step flow is live, the field at the top opens the current signup form with your email already filled in.
+                    </p>
                     <div class="join-actions">
                         <a href="#notify" class="btn btn-primary btn-large">
                             <span>Add your email</span>
@@ -687,6 +698,7 @@
     <iframe name="notifySubmitFrame" id="notifySubmitFrame" class="form-submit-frame" src="about:blank"
         tabindex="-1" aria-hidden="true" title="Hidden form submission target"></iframe>
 
+    <script src="site-config.js"></script>
     <script src="script.js"></script>
 </body>
 
