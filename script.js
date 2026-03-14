@@ -3,6 +3,7 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const GOOGLE_FORM_SUCCESS_MESSAGE = "You're on the list. We'll email you when the next event is confirmed.";
 
     // ----- Page Loader -----
     const pageLoader = document.getElementById('pageLoader');
@@ -173,6 +174,95 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     createParticles();
+
+    // ----- Notify Form -----
+    const notifyFrame = document.getElementById('notifySubmitFrame');
+    const notifyForms = document.querySelectorAll('.notify-form');
+    let notifyFrameReady = false;
+    let activeNotifyForm = null;
+
+    if (notifyFrame && notifyForms.length > 0) {
+        notifyFrame.addEventListener('load', () => {
+            if (!notifyFrameReady) {
+                notifyFrameReady = true;
+                return;
+            }
+
+            if (!activeNotifyForm) {
+                return;
+            }
+
+            const status = activeNotifyForm.parentElement.querySelector('.notify-status');
+            const button = activeNotifyForm.querySelector('button[type="submit"]');
+            const buttonLabel = button?.querySelector('span');
+
+            activeNotifyForm.reset();
+
+            if (button) {
+                button.disabled = false;
+            }
+
+            if (buttonLabel) {
+                buttonLabel.textContent = 'Notify me';
+            }
+
+            if (status) {
+                status.textContent = GOOGLE_FORM_SUCCESS_MESSAGE;
+                status.dataset.state = 'success';
+            }
+
+            activeNotifyForm = null;
+        });
+
+        notifyForms.forEach(form => {
+            const emailInput = form.querySelector('input[type="email"]');
+            const button = form.querySelector('button[type="submit"]');
+            const buttonLabel = button?.querySelector('span');
+            const status = form.parentElement.querySelector('.notify-status');
+
+            form.addEventListener('submit', (e) => {
+                if (!(emailInput instanceof HTMLInputElement)) {
+                    return;
+                }
+
+                emailInput.value = emailInput.value.trim();
+
+                if (!emailInput.checkValidity()) {
+                    e.preventDefault();
+
+                    if (status) {
+                        status.textContent = 'Please enter a valid email address.';
+                        status.dataset.state = 'error';
+                    }
+
+                    emailInput.focus();
+                    return;
+                }
+
+                activeNotifyForm = form;
+
+                if (button) {
+                    button.disabled = true;
+                }
+
+                if (buttonLabel) {
+                    buttonLabel.textContent = 'Saving...';
+                }
+
+                if (status) {
+                    status.textContent = 'Saving your email...';
+                    status.dataset.state = '';
+                }
+            });
+
+            emailInput?.addEventListener('input', () => {
+                if (status?.dataset.state === 'error') {
+                    status.textContent = '';
+                    status.dataset.state = '';
+                }
+            });
+        });
+    }
 
     // ----- Active Nav Link Highlighting -----
     const sections = document.querySelectorAll('section[id]');

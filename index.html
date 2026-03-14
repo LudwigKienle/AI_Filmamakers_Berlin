@@ -56,7 +56,7 @@
                 <li><a href="#events">Events</a></li>
                 <li><a href="#community">Community</a></li>
                 <li><a href="#organizer">Founder</a></li>
-                <li><a href="#join" class="nav-cta">Join Us</a></li>
+                <li><a href="#notify" class="nav-cta">Notify Me</a></li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
@@ -89,20 +89,20 @@
                 A community of filmmakers, artists, and technologists exploring the future of storytelling through AI.
                 Join us for screenings, workshops, and meaningful exchanges.
             </p>
-            <div class="hero-actions animate-fade-up delay-3">
-                <a href="#events" class="btn btn-primary">
-                    <span>Next Meetup</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                </a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScEbTFRo4jJ_gNilo52wBdUdeyb-N3p6Nu50nl7EPJjesditQ/viewform" class="btn btn-secondary" target="_blank" rel="noopener">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                        <polyline points="22,6 12,13 2,6" />
-                    </svg>
-                    <span>Join Newsletter</span>
-                </a>
+            <div class="hero-notify animate-fade-up delay-3" id="notify">
+                <p class="hero-notify-copy">Be the first to hear about the next AI Filmmakers Berlin event</p>
+                <form class="notify-form" id="notifyForm"
+                    action="https://docs.google.com/forms/d/e/1FAIpQLScEbTFRo4jJ_gNilo52wBdUdeyb-N3p6Nu50nl7EPJjesditQ/formResponse"
+                    method="POST" target="notifySubmitFrame">
+                    <label class="sr-only" for="notifyEmail">Your email address</label>
+                    <input type="email" id="notifyEmail" name="entry.1248076398" placeholder="Your email address"
+                        autocomplete="email" inputmode="email" required>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Notify me</span>
+                    </button>
+                </form>
+                <p class="notify-disclaimer">No newsletter. Just a heads-up when the next event is confirmed.</p>
+                <p class="notify-status" id="notifyStatus" aria-live="polite"></p>
             </div>
             <div class="hero-stats animate-fade-up delay-4">
                 <div class="stat">
@@ -263,9 +263,9 @@
                             </div>
                         </div>
                         <p class="event-description">Join us for an evening of AI film screenings, discussions about the
-                            latest tools and workflows, and networking with fellow AI filmmakers. Stay tuned for
-                            details!</p>
-                        <a href="#join" class="btn btn-primary">
+                            latest tools and workflows, and networking with fellow AI filmmakers. Leave your email and
+                            we'll let you know as soon as the date is locked.</p>
+                        <a href="#notify" class="btn btn-primary">
                             <span>Get Notified</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
@@ -555,29 +555,17 @@
             <div class="join-card">
                 <div class="join-glow"></div>
                 <div class="join-content">
-                    <span class="section-tag">Join Us</span>
-                    <h2 class="join-title">Ready to Shape the Future of <span class="text-gradient">AI Cinema</span>?
-                    </h2>
-                    <p class="join-text">Makers + learners. Industry when it's concrete. Berlin-based or Berlin-connected.</p>
+                    <span class="section-tag">Stay Updated</span>
+                    <h2 class="join-title">No newsletter. No dead-end event page.</h2>
+                    <p class="join-text">Drop your email once at the top of the page and we'll reach out when the next
+                        AI Filmmakers Berlin event is confirmed.</p>
                     <div class="join-actions">
-                        <a href="https://lu.ma" class="btn btn-primary btn-large" target="_blank" rel="noopener">
-                            <span>Join on Luma</span>
+                        <a href="#notify" class="btn btn-primary btn-large">
+                            <span>Add your email</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                <polyline points="15 3 21 3 21 9" />
-                                <line x1="10" y1="14" x2="21" y2="3" />
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </a>
-                    </div>
-                    <div class="newsletter-section">
-                        <p class="newsletter-label">Stay in the loop</p>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScEbTFRo4jJ_gNilo52wBdUdeyb-N3p6Nu50nl7EPJjesditQ/viewform" class="btn btn-secondary" target="_blank" rel="noopener">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                <polyline points="22,6 12,13 2,6" />
-                            </svg>
-                            <span>Join Newsletter</span>
                         </a>
                     </div>
                     <div class="join-social">
@@ -679,7 +667,7 @@
                                     d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                             </svg></a>
                     </div>
-                    <a href="#join" class="btn btn-primary btn-sm footer-cta">Join the Community</a>
+                    <a href="#notify" class="btn btn-primary btn-sm footer-cta">Get Notified</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -695,6 +683,9 @@
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
+
+    <iframe name="notifySubmitFrame" id="notifySubmitFrame" class="form-submit-frame" src="about:blank"
+        tabindex="-1" aria-hidden="true" title="Hidden form submission target"></iframe>
 
     <script src="script.js"></script>
 </body>
