@@ -264,7 +264,7 @@ function buildIframeResponse_(payload) {
 <html>
   <body>
     <script>
-      window.parent.postMessage(${serialized}, '*');
+      window.top.postMessage(${serialized}, '*');
     </script>
   </body>
 </html>`);

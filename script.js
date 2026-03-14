@@ -184,6 +184,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeNotifySubmission = null;
     let notifySubmissionTimeout = null;
 
+    function isTrustedNotifyOrigin(origin) {
+        if (!origin || origin === 'null') {
+            return false;
+        }
+
+        try {
+            const url = new URL(origin);
+            return (
+                url.hostname === 'script.google.com' ||
+                url.hostname === 'script.googleusercontent.com' ||
+                url.hostname.endsWith('.googleusercontent.com')
+            );
+        } catch {
+            return false;
+        }
+    }
+
     function setNotifyCopy(isLive) {
         if (notifyDisclaimer) {
             notifyDisclaimer.textContent = isLive
@@ -268,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 !payload ||
                 payload.type !== 'aifb-notify-result' ||
                 !activeNotifySubmission ||
-                event.source !== notifyFrame?.contentWindow
+                !isTrustedNotifyOrigin(event.origin)
             ) {
                 return;
             }
