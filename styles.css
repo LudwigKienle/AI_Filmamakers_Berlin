@@ -860,6 +860,88 @@ section {
     transform: translateY(0);
 }
 
+/* ----- Image Carousel ----- */
+.carousel-section {
+    width: 100%;
+    padding: 2rem 0;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding: 1rem 5%;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    padding-bottom: 2rem; /* space for shadow */
+    width: max-content;
+}
+
+.carousel-slide {
+    flex: 0 0 auto;
+    width: 85vw;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+    scroll-snap-align: center;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    /* Gradient border via outline trick */
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(0,200,240,0.5), rgba(168,85,247,0.4), rgba(0,200,240,0.2));
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(0,200,240,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.carousel-slide:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow:
+        0 16px 48px rgba(0,0,0,0.6),
+        0 0 24px rgba(0,200,240,0.2),
+        0 0 0 1px rgba(0,200,240,0.25);
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide:hover img {
+    transform: scale(1.04);
+}
+
+@media (min-width: 768px) {
+    .carousel-section {
+        padding: 4rem 0;
+    }
+    .carousel-slide {
+        width: 60vw;
+        max-width: 800px;
+    }
+    .carousel-track {
+        gap: 2.5rem;
+    }
+}
+
 /* ----- About Section ----- */
 .about {
     background: var(--bg-secondary);
