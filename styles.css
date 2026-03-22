@@ -871,15 +871,8 @@ section {
 
 .carousel-container {
     width: 100%;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
-    padding: 1rem 5%;
-}
-
-.carousel-container::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    overflow: hidden;
+    padding: 1rem 0;
 }
 
 .carousel-track {
@@ -887,14 +880,24 @@ section {
     gap: 1.5rem;
     padding-bottom: 2rem; /* space for shadow */
     width: max-content;
+    animation: scrollContinuous 30s linear infinite;
+    --scroll-width: -50%;
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollContinuous {
+    from { transform: translateX(0); }
+    to { transform: translateX(var(--scroll-width)); }
 }
 
 .carousel-slide {
     flex: 0 0 auto;
-    width: 85vw;
-    max-width: 600px;
+    width: 70vw;
+    max-width: 450px;
     aspect-ratio: 16 / 9;
-    scroll-snap-align: center;
     border-radius: 16px;
     overflow: hidden;
     position: relative;
@@ -934,11 +937,11 @@ section {
         padding: 4rem 0;
     }
     .carousel-slide {
-        width: 60vw;
-        max-width: 800px;
+        width: 45vw;
+        max-width: 500px;
     }
     .carousel-track {
-        gap: 2.5rem;
+        gap: 2rem;
     }
 }
 
@@ -1171,7 +1174,7 @@ section {
 /* Past Events */
 .past-events-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
 }
 
@@ -1731,9 +1734,10 @@ section {
 }
 
 .loader-logo {
-    width: 48px;
+    width: auto;
     height: 48px;
     border-radius: 10px;
+    object-fit: contain;
 }
 
 .loader-text {
@@ -2191,4 +2195,45 @@ section {
     .hero-notify-copy {
         font-size: 0.94rem;
     }
+}
+
+/* ----- Lightbox Overlay ----- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(5px);
+    cursor: zoom-out;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active img {
+    transform: scale(1);
+}
+
+.event-gallery img {
+    cursor: zoom-in;
 }

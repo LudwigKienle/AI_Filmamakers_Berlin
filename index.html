@@ -58,6 +58,7 @@
             ]
         }
     </script>
+    <link rel="icon" type="image/png" href="favicon.jpg.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -115,6 +116,13 @@
             <div class="hero-particles" id="heroParticles"></div>
         </div>
         <div class="hero-content">
+            <div class="hero-video-detail animate-fade-up" style="margin: 0 auto 2rem; width: 100%; max-width: 260px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 16px 40px rgba(0,0,0,0.4);">
+                <video src="VIDEO_intro.mov" 
+                    autoplay loop muted playsinline 
+                    style="width: 100%; height: auto; display: block;"
+                    aria-label="AI Filmmakers Berlin animated preview">
+                </video>
+            </div>
             <div class="hero-badge animate-fade-up">
                 <span class="badge-dot"></span>
                 Berlin's AI Film Community
@@ -205,8 +213,11 @@
                         AI in filmmaking.
                     </p>
                     <div class="about-image-wrapper">
-                        <img src="WhatsApp Image 2026-03-02 at 12.21.59.jpeg" alt="AI Filmmakers Berlin meetup"
-                            width="1600" height="893" loading="lazy" decoding="async">
+                        <video src="VIDEO_intro.mov" 
+                            autoplay loop muted playsinline 
+                            style="width: 100%; height: auto; display: block;" 
+                            aria-label="AI Filmmakers Berlin meetup">
+                        </video>
                     </div>
                 </div>
                 <div class="about-features">
@@ -332,27 +343,42 @@
             <!-- Past Events -->
             <h3 class="subsection-title">Past Highlights</h3>
             <div class="past-events-grid">
-                <div class="past-event-card">
+                <a href="berlinale-special.html" class="past-event-card" style="text-decoration: none; color: inherit; display: block;">
                     <div class="past-event-date">Berlinale Special</div>
-                    <h4>Berlinale Creator Session 2026</h4>
+                    <h4 style="margin-bottom: 4px;">Berlinale Creator Session</h4>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 500;">18 February 2026, Potsdamer Platz, Berlin</div>
                     <p>Special meetup at Potsdamer Platz in collaboration with Runway and ProSiebenSat.1, focusing on
                         high-trust creative exchange and extended distribution logics.</p>
                     <span class="past-event-tag">Special Event</span>
-                </div>
-                <div class="past-event-card">
-                    <div class="past-event-date">Regular Meetup</div>
-                    <h4>AI Short Film Night</h4>
-                    <p>Community screenings of AI-generated short films followed by in-depth discussions about creative
-                        workflows and techniques.</p>
-                    <span class="past-event-tag">Screening</span>
-                </div>
-                <div class="past-event-card">
-                    <div class="past-event-date">Workshop</div>
-                    <h4>Tools & Workflows</h4>
-                    <p>Hands-on exploration of the latest AI filmmaking tools — from text-to-video to style consistency
-                        techniques.</p>
-                    <span class="past-event-tag">Workshop</span>
-                </div>
+                </a>
+                <a href="past-meetup-25.html" class="past-event-card" style="text-decoration: none; color: inherit; display: block;">
+                    <div class="past-event-date">Community Meetup</div>
+                    <h4 style="margin-bottom: 4px;">AI Filmmakers Meetup</h4>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 500;">20 October 2025, Berlin</div>
+                    <p>Join filmmakers, creatives, and technologists for an in-person meetup screening and discussing the future of filmmaking with AI.</p>
+                    <span class="past-event-tag">Screening & Discussion</span>
+                </a>
+                <a href="past-meetup-runway.html" class="past-event-card" style="text-decoration: none; color: inherit; display: block;">
+                    <div class="past-event-date">Runway Meetup</div>
+                    <h4 style="margin-bottom: 4px;">AI Filmmaker Meetup</h4>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 500;">10 July 2025, betahaus, Berlin</div>
+                    <p>Join us at betahaus, Berlin to discuss the latest AI filmmaking trends, screen short films, and run a live prompting session.</p>
+                    <span class="past-event-tag">Screening & Workshop</span>
+                </a>
+                <a href="past-meetup-smc.html" class="past-event-card" style="text-decoration: none; color: inherit; display: block;">
+                    <div class="past-event-date">SMC Special</div>
+                    <h4 style="margin-bottom: 4px;">AI Filmmaker Meetup</h4>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 500;">4 April 2025, Saturday Monster Challenge</div>
+                    <p>Join us at workish.berlin in Neukölln for screenings, networking, and Live Prompting with the SMC.</p>
+                    <span class="past-event-tag">Screening & Live Prompting</span>
+                </a>
+                <a href="past-meetup-jan24.html" class="past-event-card" style="text-decoration: none; color: inherit; display: block;">
+                    <div class="past-event-date">Community Meetup</div>
+                    <h4 style="margin-bottom: 4px;">AI Filmmaker Meetup</h4>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 500;">24 January 2025, workish.berlin</div>
+                    <p>Join us at workish.berlin in Neukölln for a special screening of AI short films and networking with the community.</p>
+                    <span class="past-event-tag">Screening & Networking</span>
+                </a>
             </div>
         </div>
     </section>
@@ -401,11 +427,10 @@
                                 loading="lazy" decoding="async">
                             <div>
                                 <h3>Sylvia Nitzsche</h3>
-                                <span class="showcase-role">Motion Designer & AI Filmmaker</span>
+                                <span class="showcase-role">Director & Creative Technologist</span>
                             </div>
                         </div>
-                        <p>Presenter at "Voices of AI", exploring how artificial intelligence is applied in creative
-                            practice and motion design.</p>
+                        <p>A Berlin-based director specializing in short formats, visual storytelling, and AI-driven media. Sylvia leverages complete AI workflows across the entire creative pipeline—from concept and animation to sound design and post-production.</p>
                     </div>
                 </div>
                 <div class="showcase-card">

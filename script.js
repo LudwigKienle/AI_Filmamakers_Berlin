@@ -7,20 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ----- Page Loader -----
     const pageLoader = document.getElementById('pageLoader');
-    window.addEventListener('load', () => {
+    if (pageLoader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                pageLoader.classList.add('loaded');
+            }, 2000);
+        });
         setTimeout(() => {
             pageLoader.classList.add('loaded');
-        }, 2000);
-    });
-    // Fallback: hide loader after 4s even if load event didn't fire
-    setTimeout(() => {
-        pageLoader.classList.add('loaded');
-    }, 4000);
+        }, 4000);
+    }
 
     // ----- Navbar Scroll Effect -----
     const navbar = document.getElementById('navbar');
 
     const handleScroll = () => {
+        if (!navbar) return;
         if (window.scrollY > 60) {
             navbar.classList.add('scrolled');
         } else {
@@ -34,19 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
 
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
-    });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
 
     // ----- Smooth Scroll for Anchor Links -----
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -149,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const particlesContainer = document.getElementById('heroParticles');
 
     function createParticles() {
+        if (!particlesContainer) return;
         const count = window.innerWidth < 768 ? 12 : 25;
         for (let i = 0; i < count; i++) {
             const particle = document.createElement('div');
@@ -173,7 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    createParticles();
+    if (particlesContainer) {
+        createParticles();
+    }
 
     // ----- Notify Form -----
     const notifyFrame = document.getElementById('notifySubmitFrame');
@@ -502,6 +509,64 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('mouseleave', () => {
                 btn.style.transform = '';
             });
+        });
+    }
+
+    // ----- Continuous Carousel Auto-Scroll -----
+    const carouselContainer = document.querySelector('.carousel-container');
+    const carouselTrack = document.getElementById('carouselTrack');
+    
+    if (carouselContainer && carouselTrack) {
+        const originalSlides = Array.from(carouselTrack.children);
+        
+        // Clone slides
+        originalSlides.forEach(slide => {
+            const clone = slide.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            carouselTrack.appendChild(clone);
+        });
+
+        // Calculate exact width for CSS transform
+        const updateAnimationWidth = () => {
+            let singleSetWidth = 0;
+            const gap = parseFloat(window.getComputedStyle(carouselTrack).gap) || 0;
+            
+            originalSlides.forEach(slide => {
+                singleSetWidth += slide.offsetWidth;
+            });
+            singleSetWidth += originalSlides.length * gap;
+            
+            carouselTrack.style.setProperty('--scroll-width', `-${singleSetWidth}px`);
+        };
+        
+        // Initial calc & resize listener
+        updateAnimationWidth();
+        setTimeout(updateAnimationWidth, 500); 
+        window.addEventListener('resize', updateAnimationWidth);
+    }
+
+    // ----- Lightbox Gallery Overlay -----
+    const galleryImages = document.querySelectorAll('.event-gallery img');
+    if (galleryImages.length > 0) {
+        let lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        
+        let lightboxImg = document.createElement('img');
+        lightbox.appendChild(lightboxImg);
+        document.body.appendChild(lightbox);
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => { lightboxImg.src = ''; }, 300);
         });
     }
 

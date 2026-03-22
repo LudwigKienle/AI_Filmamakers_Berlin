@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Filmmaker Meetup | AI Filmmakers Berlin</title>
+    <meta name="description" content="Join us for an in-person event at workish.berlin in Neukölln to discuss the latest AI technology in filmmaking.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="favicon.jpg.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .event-detail-section {
+            padding: 180px 0 100px;
+            position: relative;
+        }
+        .event-detail-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+        .event-detail-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        .event-body {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .event-body p {
+            margin-bottom: 1.5rem;
+        }
+        .event-body h3 {
+            color: var(--text-primary);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            margin: 3rem 0 1.5rem;
+        }
+        .event-body ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 2.5rem;
+        }
+        .event-body ul li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .event-body ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+        .event-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        .event-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .event-gallery img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        @media (max-width: 600px) {
+            .event-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .event-gallery img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="AI Filmmakers Berlin" class="logo-img">
+                <span class="logo-text">AI Filmmakers <span class="logo-accent">Berlin</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="index.html#showcase">Showcase</a></li>
+                <li><a href="index.html#community">Community</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Event Detail Section -->
+    <section class="event-detail-section">
+        <div class="bg-decoration bg-orb bg-orb-purple" style="top: 10%; right: 10%;"></div>
+        <div class="container">
+            <div class="event-detail-content">
+                <a href="index.html#events" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19L5 12L12 5"/>
+                    </svg>
+                    Back to Events
+                </a>
+                
+                <span class="section-tag" style="margin-bottom: 1.5rem; display: inline-block;">Past Event</span>
+                <h1 class="event-detail-title" style="margin-bottom: 0.5rem;">AI Filmmaker Meetup</h1>
+                <div class="text-gradient" style="font-size: clamp(1.2rem, 2.5vw, 1.75rem); font-family: 'Space Grotesk', sans-serif; font-weight: 600; margin-bottom: 2rem;">4 April 2025, Saturday Monster Challenge Special</div>
+                
+                <div class="event-body">
+                    <p>Our April 2025 meetup at workish.berlin brought the local AI filmmaking community together for an unforgettable night of creative exchange. We gathered seasoned filmmakers and curious innovators to discuss the cutting-edge trends shaping the future of storytelling.</p>
+                    
+                    <h3>Highlights of the evening</h3>
+                    <ul>
+                        <li>An exclusive screening session featuring some of the latest AI-powered short films, demonstrating what modern tools are truly capable of.</li>
+                        <li><strong>Live Prompting with the SMC - Saturday Monster Challenge:</strong> We hosted an explosive live prompting session in collaboration with SMC, where attendees got hands-on experience crafting AI visuals in real-time alongside industry peers.</li>
+                    </ul>
+
+                    <p>These dynamic, community-driven meetups are designed to foster deep connections and launch bold new creative collaborations. We are actively seeking visionary partners who want to support the next era of AI filmmaking. If you represent an organization or tech platform looking to sponsor or co-host future groundbreaking events, we'd love to hear from you!</p>
+                    
+                    <h3>Gallery</h3>
+                    <div class="event-gallery">
+                        <img src="gallery/Workish 2/1744015582635.jpeg" alt="SMC Workish Meetup Photo 1" loading="lazy">
+                        <img src="gallery/Workish 2/1744015582738.jpeg" alt="SMC Workish Meetup Photo 2" loading="lazy">
+                        <img src="gallery/Workish 2/1744015582739.jpeg" alt="SMC Workish Meetup Photo 3" loading="lazy">
+                        <img src="gallery/Workish 2/1744015582750.jpeg" alt="SMC Workish Meetup Photo 4" loading="lazy">
+                        <img src="gallery/Workish 2/1744015582764.jpeg" alt="SMC Workish Meetup Photo 5" loading="lazy">
+                        <img src="gallery/Workish 2/1744015582942.jpeg" alt="SMC Workish Meetup Photo 6" loading="lazy">
+                        <img src="gallery/Workish 2/1744015582996.jpeg" alt="SMC Workish Meetup Photo 7" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <div class="footer-brand">
+                        <img src="logo.png" alt="AI Filmmakers Berlin" class="logo-img">
+                        <span class="logo-text">AI Filmmakers <span class="logo-accent">Berlin</span></span>
+                    </div>
+                    <p class="footer-text">A community by filmmakers, for filmmakers — exploring the future of AI cinema in Berlin and beyond.</p>
+                    <div class="footer-address">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <span>Wildenbruchstr. 87, 12045 Berlin</span>
+                    </div>
+                </div>
+                <div class="footer-nav-col">
+                    <h4 class="footer-heading">Navigate</h4>
+                    <ul class="footer-nav">
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#events">Events</a></li>
+                        <li><a href="index.html#showcase">Showcase</a></li>
+                        <li><a href="index.html#community">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-connect-col">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <p class="footer-copyright">&copy; 2026 AI Filmmakers Berlin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="site-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
