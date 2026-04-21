@@ -58,6 +58,7 @@
             ]
         }
     </script>
+    <link rel="icon" type="image/png" href="favicon.jpg.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -93,8 +94,7 @@
                 <li><a href="#showcase">Showcase</a></li>
                 <li><a href="#events">Events</a></li>
                 <li><a href="#community">Community</a></li>
-                <li><a href="#organizer">Founder</a></li>
-                <li><a href="#notify" class="nav-cta">Notify Me</a></li>
+                <li><a href="#notify" class="nav-cta">Join the community</a></li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
@@ -115,6 +115,13 @@
             <div class="hero-particles" id="heroParticles"></div>
         </div>
         <div class="hero-content">
+            <div class="hero-video-detail animate-fade-up"
+                style="margin: 0 auto 2rem; width: 100%; max-width: 260px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 16px 40px rgba(0,0,0,0.4);">
+                <video src="VIDEO_intro.mov" autoplay loop muted playsinline
+                    style="width: 100%; height: auto; display: block;"
+                    aria-label="AI Filmmakers Berlin animated preview">
+                </video>
+            </div>
             <div class="hero-badge animate-fade-up">
                 <span class="badge-dot"></span>
                 Berlin's AI Film Community
@@ -123,8 +130,9 @@
                 AI Filmmakers <span class="text-gradient-warm">Berlin</span>
             </h1>
             <p class="hero-subtitle animate-fade-up delay-2">
-                A community for filmmakers, artists and technologists exploring the future of cinema with AI.<br><br>
-                AI Filmmakers Berlin brings together people working across storytelling, filmmaking and generative tools through events, screenings, talks and exchange.
+                Curated screenings, sharp conversations, and real community for AI&nbsp;filmmaking.<br>
+                Founded and curated by <a href="https://www.linkedin.com/in/benchimoy" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">Ben Chimoy</a>.<br><br>
+                A Berlin-based home for filmmakers, artists and technologists exploring storytelling, authorship and production with AI.
             </p>
             <div class="hero-notify animate-fade-up delay-3" id="notify">
                 <p class="hero-notify-copy">Be the first to hear about the next AI Filmmakers Berlin event</p>
@@ -135,7 +143,7 @@
                     <input type="hidden" name="source" value="landing-page">
                     <input type="hidden" name="pageUrl" value="">
                     <button type="submit" class="btn btn-primary">
-                        <span>Notify me</span>
+                        <span>Join the community</span>
                     </button>
                 </form>
                 <p class="notify-disclaimer" id="notifyDisclaimer"
@@ -145,22 +153,33 @@
                 </p>
                 <p class="notify-status" id="notifyStatus" aria-live="polite"></p>
             </div>
+            <p class="animate-fade-up delay-4" style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 24px; font-weight: 500;">
+                A fast-growing hub for AI filmmaking in Berlin
+            </p>
             <div class="hero-stats animate-fade-up delay-4">
                 <div class="stat">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Attendees per Event</span>
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label" style="max-width: 160px;">Registrations across recent events</span>
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat">
                     <span class="stat-number">10+</span>
-                    <span class="stat-label">Meetups Hosted</span>
+                    <span class="stat-label" style="max-width: 160px;">Meetups and special sessions hosted</span>
                 </div>
                 <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-number">2024</span>
-                    <span class="stat-label">Founded</span>
+                <div class="stat stat-partners" style="width: 100%;">
+                    <span class="stat-label" style="margin-top: 0; margin-bottom: 20px;">With partners such as</span>
+                    <div class="partner-logos-strip">
+                        <img src="Logos%20Partner/Runway_transparent.png" alt="Runway Logo" loading="lazy">
+                        <img src="Logos%20Partner/logo_prosieben_transparent.png" alt="ProSieben Logo" loading="lazy">
+                        <img src="Logos%20Partner/Freepik-Logo_transparent.png" alt="Freepik Logo" loading="lazy">
+                        <img src="Logos%20Partner/betahaus-logo_transparent.png" alt="betahaus Logo" loading="lazy">
+                    </div>
                 </div>
             </div>
+            <p class="animate-fade-up delay-4" style="font-size: 0.95rem; color: var(--text-muted); margin-top: 24px;">
+                From intimate meetups to Berlinale-week special sessions.
+            </p>
         </div>
         <div class="hero-scroll-indicator">
             <div class="scroll-line"></div>
@@ -171,10 +190,14 @@
     <section class="carousel-section" id="carousel">
         <div class="carousel-container">
             <div class="carousel-track" id="carouselTrack">
-                <div class="carousel-slide"><img src="Ben%20Chimoy%20LinkedIn.jpeg" alt="AI Filmmakers Berlin community" loading="lazy"></div>
-                <div class="carousel-slide"><img src="Ben%20Chimoy%20LinkedIn%20(1).jpeg" alt="AI Filmmakers Berlin crowd" loading="lazy"></div>
-                <div class="carousel-slide"><img src="Ben%20Chimoy%20LinkedIn%20(3).jpeg" alt="AI Filmmakers Berlin networking" loading="lazy"></div>
-                <div class="carousel-slide"><img src="Ben%20Chimoy%20LinkedIn%20(4).jpeg" alt="AI Filmmakers Berlin meetup" loading="lazy"></div>
+                <div class="carousel-slide"><img src="Ben%20Chimoy%20LinkedIn.jpeg" alt="AI Filmmakers Berlin community"
+                        loading="lazy"></div>
+                <div class="carousel-slide"><img src="Ben%20Chimoy%20LinkedIn%20(1).jpeg"
+                        alt="AI Filmmakers Berlin crowd" loading="lazy"></div>
+                <div class="carousel-slide"><img src="Ben%20Chimoy%20LinkedIn%20(3).jpeg"
+                        alt="AI Filmmakers Berlin networking" loading="lazy"></div>
+                <div class="carousel-slide"><img src="Ben%20Chimoy%20LinkedIn%20(4).jpeg"
+                        alt="AI Filmmakers Berlin meetup" loading="lazy"></div>
             </div>
         </div>
     </section>
@@ -186,27 +209,23 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">About Us</span>
-                <h2 class="section-title">The Intersection of <span class="text-gradient">AI</span> & <span
-                        class="text-gradient-warm">Film</span></h2>
+                <h2 class="section-title">A Community for <span class="text-gradient">AI Cinema</span> in Berlin</h2>
             </div>
             <div class="about-grid">
                 <div class="about-text">
                     <p class="about-lead">
-                        AI Filmmakers Berlin is a growing community of filmmakers exploring how generative AI is changing cinema and storytelling.
+                        AI Filmmakers Berlin is a community for filmmakers, artists and technologists exploring how AI is reshaping cinema and storytelling.
                     </p>
                     <p>
-                        Our meetups bring together filmmakers, AI researchers, visual artists, and storytellers to
-                        explore how generative AI is reshaping contemporary cinematic practice. From AI-generated short
-                        films to cutting-edge production workflows — we cover it all.
+                        Founded and curated by Ben Chimoy, it brings people together through screenings, conversations and events that connect artistic practice with emerging tools.
                     </p>
                     <p>
-                        What began in Berlin has inspired chapters in other German cities. Our community has grown
-                        organically through word of mouth, driven by a shared passion for the creative possibilities of
-                        AI in filmmaking.
+                        The focus is not just on technology, but on strong films, creative exchange and real-world collaboration.
                     </p>
                     <div class="about-image-wrapper">
-                        <img src="WhatsApp Image 2026-03-02 at 12.21.59.jpeg" alt="AI Filmmakers Berlin meetup"
-                            width="1600" height="893" loading="lazy" decoding="async">
+                        <video src="VIDEO_intro.mov" autoplay loop muted playsinline
+                            style="width: 100%; height: auto; display: block;" aria-label="AI Filmmakers Berlin meetup">
+                        </video>
                     </div>
                 </div>
                 <div class="about-features">
@@ -332,27 +351,56 @@
             <!-- Past Events -->
             <h3 class="subsection-title">Past Highlights</h3>
             <div class="past-events-grid">
-                <div class="past-event-card">
+                <a href="berlinale-special.html" class="past-event-card"
+                    style="text-decoration: none; color: inherit; display: block;">
                     <div class="past-event-date">Berlinale Special</div>
-                    <h4>Berlinale Creator Session 2026</h4>
+                    <h4 style="margin-bottom: 4px;">Berlinale Creator Session</h4>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 500;">18
+                        February 2026, Potsdamer Platz, Berlin</div>
                     <p>Special meetup at Potsdamer Platz in collaboration with Runway and ProSiebenSat.1, focusing on
                         high-trust creative exchange and extended distribution logics.</p>
                     <span class="past-event-tag">Special Event</span>
-                </div>
-                <div class="past-event-card">
-                    <div class="past-event-date">Regular Meetup</div>
-                    <h4>AI Short Film Night</h4>
-                    <p>Community screenings of AI-generated short films followed by in-depth discussions about creative
-                        workflows and techniques.</p>
-                    <span class="past-event-tag">Screening</span>
-                </div>
-                <div class="past-event-card">
-                    <div class="past-event-date">Workshop</div>
-                    <h4>Tools & Workflows</h4>
-                    <p>Hands-on exploration of the latest AI filmmaking tools — from text-to-video to style consistency
-                        techniques.</p>
-                    <span class="past-event-tag">Workshop</span>
-                </div>
+                </a>
+                <a href="past-meetup-25.html" class="past-event-card"
+                    style="text-decoration: none; color: inherit; display: block;">
+                    <div class="past-event-date">Community Meetup</div>
+                    <h4 style="margin-bottom: 4px;">AI Filmmakers Meetup</h4>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 500;">20
+                        October 2025, Berlin</div>
+                    <p>Join filmmakers, creatives, and technologists for an in-person meetup screening and discussing
+                        the future of filmmaking with AI.</p>
+                    <span class="past-event-tag">Screening & Discussion</span>
+                </a>
+                <a href="past-meetup-runway.html" class="past-event-card"
+                    style="text-decoration: none; color: inherit; display: block;">
+                    <div class="past-event-date">Runway Meetup</div>
+                    <h4 style="margin-bottom: 4px;">AI Filmmaker Meetup</h4>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 500;">10
+                        July 2025, betahaus, Berlin</div>
+                    <p>Join us at betahaus, Berlin to discuss the latest AI filmmaking trends, screen short films, and
+                        run a live prompting session.</p>
+                    <span class="past-event-tag">Screening & Workshop</span>
+                </a>
+                <a href="past-meetup-smc.html" class="past-event-card"
+                    style="text-decoration: none; color: inherit; display: block;">
+                    <div class="past-event-date">SMC Special</div>
+                    <h4 style="margin-bottom: 4px;">AI Filmmaker Meetup</h4>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 500;">4
+                        April 2025, Saturday Monster Challenge</div>
+                    <p>Join us at workish.berlin in Neukölln for screenings, networking, and Live Prompting with the
+                        SMC.</p>
+                    <span class="past-event-tag">Screening & Live Prompting</span>
+                </a>
+                <a href="past-meetup-jan24.html" class="past-event-card"
+                    style="text-decoration: none; color: inherit; display: block;">
+                    <div class="past-event-date">Community Meetup</div>
+                    <h4 style="margin-bottom: 4px;">AI Filmmaker Meetup</h4>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 500;">24
+                        January 2025, workish.berlin</div>
+                    <p>Join us at workish.berlin in Neukölln for a special screening of AI short films and networking
+                        with the community.</p>
+                    <span class="past-event-tag">Screening & Networking</span>
+                </a>
             </div>
         </div>
     </section>
@@ -365,11 +413,29 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Showcase</span>
-                <h2 class="section-title">Featured <span class="text-gradient">AI Films</span></h2>
-                <p class="section-subtitle">Works showcased at AI Filmmakers Berlin meetups by our talented community
-                    members.</p>
+                <h2 class="section-title">Featured <span class="text-gradient">Filmmakers & Works</span></h2>
+                <p class="section-subtitle">A selection of artists and films featured through AI Filmmakers Berlin.</p>
             </div>
             <div class="showcase-grid">
+                <div class="showcase-card">
+                    <div class="showcase-thumbnail" id="thumb-benjamin">
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7431611277715636224"
+                            height="100%" width="100%" frameborder="0" allowfullscreen="" loading="lazy"
+                            title="Embedded LinkedIn post by Ben Chimoy"></iframe>
+                    </div>
+                    <div class="showcase-info">
+                        <div class="creator-profile">
+                            <img src="Logos_Filmmaker/Ben Chimoy LinkedIn.jpeg" alt="Ben Chimoy" width="800"
+                                height="800" loading="lazy" decoding="async">
+                            <div>
+                                <h3><a href="https://www.linkedin.com/in/benchimoy/" target="_blank" rel="noopener"
+                                        style="color:inherit;text-decoration:none;">Ben Chimoy</a></h3>
+                                <span class="showcase-role">Founder & Curator of AI Filmmakers Berlin, Director & Writer</span>
+                            </div>
+                        </div>
+                        <p>Berlin-based director, writer and founder of AI Filmmakers Berlin, creating cinematic AI-driven films, branded stories and talks at the intersection of technology and culture.</p>
+                    </div>
+                </div>
                 <div class="showcase-card">
                     <div class="showcase-thumbnail" id="thumb-mark">
                         <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7430635904156868608"
@@ -401,32 +467,15 @@
                                 loading="lazy" decoding="async">
                             <div>
                                 <h3>Sylvia Nitzsche</h3>
-                                <span class="showcase-role">Motion Designer & AI Filmmaker</span>
+                                <span class="showcase-role">Director & Creative Technologist</span>
                             </div>
                         </div>
-                        <p>Presenter at "Voices of AI", exploring how artificial intelligence is applied in creative
-                            practice and motion design.</p>
+                        <p>A Berlin-based director specializing in short formats, visual storytelling, and AI-driven
+                            media. Sylvia leverages complete AI workflows across the entire creative pipeline—from
+                            concept and animation to sound design and post-production.</p>
                     </div>
                 </div>
-                <div class="showcase-card">
-                    <div class="showcase-thumbnail" id="thumb-benjamin">
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7431611277715636224"
-                            height="100%" width="100%" frameborder="0" allowfullscreen="" loading="lazy"
-                            title="Embedded LinkedIn post by Benjamin Chimoy"></iframe>
-                    </div>
-                    <div class="showcase-info">
-                        <div class="creator-profile">
-                            <img src="Logos_Filmmaker/Ben Chimoy LinkedIn.jpeg" alt="Benjamin Chimoy" width="800"
-                                height="800" loading="lazy" decoding="async">
-                            <div>
-                                <h3><a href="https://www.linkedin.com/in/benchimoy/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Benjamin Chimoy</a></h3>
-                                <span class="showcase-role">GenAI Director, Founder & Curator</span>
-                            </div>
-                        </div>
-                        <p>Wim Wenders scholar and director of "KALA" and "BILAL". His recent AI short film premieres
-                            explore the boundaries of copyright and creative intention.</p>
-                    </div>
-                </div>
+
                 <div class="showcase-card">
                     <div class="showcase-thumbnail" id="thumb-esther">
                         <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7430915823789076480"
@@ -477,22 +526,18 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Community</span>
-                <h2 class="section-title">A Growing <span class="text-gradient-warm">Movement</span></h2>
+                <h2 class="section-title">Where <span class="text-gradient-warm">AI Filmmakers Meet</span></h2>
             </div>
             <div class="community-content">
                 <div class="community-text">
                     <p class="community-lead">
-                        What started with seven curious minds has grown into one of Europe's most active AI filmmaking
-                        communities.
+                        What began in Berlin as a small circle of filmmakers has grown into a vibrant community around AI cinema.
                     </p>
                     <p>
-                        Our members include professional filmmakers, VFX artists, AI researchers, creative
-                        technologists, and storytellers who are passionate about exploring how artificial intelligence
-                        can enhance and transform the art of filmmaking.
+                        Today it connects directors, artists, technologists, producers and researchers who are actively shaping how new tools meet cinematic practice.
                     </p>
                     <p>
-                        We foster an inclusive environment where beginners and experts alike can share ideas, learn from
-                        each other, and push the boundaries of what's possible when AI and human creativity converge.
+                        The focus is on meaningful exchange, strong work and a shared curiosity for where filmmaking is heading.
                     </p>
                 </div>
                 <div class="community-stats-grid">
@@ -524,7 +569,9 @@
                         <div class="community-stat-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-warm)"
                                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
                             </svg>
                         </div>
                         <span class="community-stat-number">Industry Guests</span>
@@ -552,27 +599,25 @@
     <hr class="section-divider">
 
     <!-- Founder Section -->
-    <section class="organizers" id="organizer">
+    <section class="organizers" id="organizer" style="padding-top: 60px; padding-bottom: 60px;">
         <div class="bg-decoration bg-orb bg-orb-warm" style="bottom: 20%; left: -5%;"></div>
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Founder</span>
-                <h2 class="section-title">Meet the <span class="text-gradient">Founder</span></h2>
+                <h2 class="section-title">About the <span class="text-gradient">Founder</span></h2>
             </div>
             <div class="founder-card">
                 <div class="organizer-image organizer-image-lg" id="organizer-benjamin">
-                    <img src="Logos_Filmmaker/Ben Chimoy LinkedIn.jpeg" alt="Benjamin Chimoy"
-                        width="800" height="800" loading="lazy" decoding="async"
-                        style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="Logos_Filmmaker/Ben Chimoy LinkedIn.jpeg" alt="Benjamin Chimoy" width="800" height="800"
+                        loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="organizer-info">
                     <h3>Ben Chimoy</h3>
                     <span class="organizer-role">AI Filmmaker & Founder of AI Filmmakers Berlin</span>
-                    <p>Award-winning Berlin-based GenAI Director, screenwriter, and producer. Ben combines
-                        cinematic storytelling with AI-native filmmaking and is a creative partner for Runway. He
-                        previously worked with 3D, VR, and XR technologies at Zalando.</p>
+                    <p style="font-size: 0.95rem; line-height: 1.7;">Ben Chimoy is a Berlin-based director, writer and founder of AI Filmmakers Berlin. He works across cinematic storytelling, AI-driven films, branded work and talks, while curating a community for filmmakers exploring the future of cinema with AI.</p>
                     <div class="founder-links">
-                        <a href="https://www.linkedin.com/in/benchimoy/" class="founder-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                        <a href="https://www.linkedin.com/in/benchimoy/" class="founder-link" aria-label="LinkedIn"
+                            target="_blank" rel="noopener">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path
@@ -612,7 +657,8 @@
                     <p class="join-text" id="joinStatusText"
                         data-live-copy="Drop your email into the field above and it goes straight into the event notify list."
                         data-fallback-copy="Until the one-step flow is live, the field at the top opens the current signup form with your email already filled in.">
-                        Until the one-step flow is live, the field at the top opens the current signup form with your email already filled in.
+                        Until the one-step flow is live, the field at the top opens the current signup form with your
+                        email already filled in.
                     </p>
                     <div class="join-actions">
                         <a href="#notify" class="btn btn-primary btn-large">
@@ -739,8 +785,8 @@
         </svg>
     </button>
 
-    <iframe name="notifySubmitFrame" id="notifySubmitFrame" class="form-submit-frame" src="about:blank"
-        tabindex="-1" aria-hidden="true" title="Hidden form submission target"></iframe>
+    <iframe name="notifySubmitFrame" id="notifySubmitFrame" class="form-submit-frame" src="about:blank" tabindex="-1"
+        aria-hidden="true" title="Hidden form submission target"></iframe>
 
     <script src="site-config.js"></script>
     <script src="script.js"></script>
