@@ -1,0 +1,19 @@
+[
+    { "n": "API – Atlas Cloud Fast", "d": "Seedance 2.0 Fast · 720p · ohne Ref", "v": 0.19, "c": "api", "res": "720p", "model": "Seedance 2.0 Fast", "ref": "ohne", "bind": "jahr" },
+    { "n": "Higgsfield Ultra (jährlich)", "d": "Kling 3.0 · 720p · ohne Ref", "v": 0.24, "c": "higgs", "res": "720p", "model": "Kling 3.0", "ref": "ohne", "bind": "jahr" },
+    { "n": "Higgsfield Ultra (jährlich)", "d": "Seedance 2.0 Fast · 720p · ohne Ref", "v": 0.46, "c": "higgs", "res": "720p", "model": "Seedance 2.0 Fast", "ref": "ohne", "bind": "jahr" },
+    { "n": "Kling direkt – Ultra (jährlich)", "d": "Kling 3.0 · 1080p · Start-Frame", "v": 0.47, "c": "klingd", "res": "1080p", "model": "Kling 3.0", "ref": "bild", "bind": "jahr" },
+    { "n": "Kling direkt – Premier (jährlich)", "d": "Kling 3.0 · 1080p · Start-Frame", "v": 0.78, "c": "klingd", "res": "1080p", "model": "Kling 3.0", "ref": "bild", "bind": "jahr" },
+    { "n": "Higgsfield Ultra (jährlich)", "d": "Seedance 2.0 · 720p · ohne Ref", "v": 0.88, "c": "higgs", "res": "720p", "model": "Seedance 2.0", "ref": "ohne", "bind": "jahr" },
+    { "n": "Kling direkt – Premier (monatlich)", "d": "Kling 3.0 · 1080p · Start-Frame", "v": 1.04, "c": "klingd", "res": "1080p", "model": "Kling 3.0", "ref": "bild", "bind": "monat" },
+    { "n": "API – ByteDance offiziell", "d": "Seedance 2.0 · 1080p · ohne Ref", "v": 1.20, "c": "api", "res": "1080p", "model": "Seedance 2.0", "ref": "ohne", "bind": "monat" },
+    { "n": "API – EvoLink Standard", "d": "Seedance 2.0 · 720p · ohne Ref", "v": 1.40, "c": "api", "res": "720p", "model": "Seedance 2.0", "ref": "ohne", "bind": "monat" },
+    { "n": "Higgsfield Ultra (jährlich, Aktion)", "d": "Seedance 2.0 · 1080p · ohne Ref · 90 Cr", "v": 1.81, "c": "higgs", "res": "1080p", "model": "Seedance 2.0", "ref": "ohne", "bind": "jahr" },
+    { "n": "Kling über Magnific Enterprise", "d": "Kling 3.0 · 720p · Start-Frame, Sound", "v": 2.18, "c": "magnific", "res": "720p", "model": "Kling 3.0", "ref": "bild", "bind": "jahr" },
+    { "n": "Higgsfield Ultra (jährlich, regulär)", "d": "Seedance 2.0 · 1080p · ohne Ref · 120 Cr", "v": 2.41, "c": "higgs", "res": "1080p", "model": "Seedance 2.0", "ref": "ohne", "bind": "jahr" },
+    { "n": "Flora Pro *", "d": "Seedance 2.0 · Spec unbestätigt (Annahme 5s)", "v": 3.12, "c": "flora", "res": "1080p", "model": "Seedance 2.0", "ref": "ohne", "bind": "monat" },
+    { "n": "Higgsfield Ultra (monatlich, Aktion)", "d": "Seedance 2.0 · 1080p · ohne Ref", "v": 3.33, "c": "higgs", "res": "1080p", "model": "Seedance 2.0", "ref": "ohne", "bind": "monat" },
+    { "n": "Dreamina Advanced", "d": "Seedance 2.0 · 1080p · Video-Ref", "v": 5.79, "c": "dreamina", "res": "1080p", "model": "Seedance 2.0", "ref": "video", "bind": "monat" },
+    { "n": "Magnific Enterprise (Bild-Ref)", "d": "Seedance 2.0 · 1080p · Sound · 7.085 Cr", "v": 14.74, "c": "magnific", "res": "1080p", "model": "Seedance 2.0", "ref": "bild", "bind": "jahr" },
+    { "n": "Magnific Enterprise (Video-Ref)", "d": "Seedance 2.0 · 1080p · 10.000 Cr", "v": 20.80, "c": "magnific", "res": "1080p", "model": "Seedance 2.0", "ref": "video", "bind": "jahr" }
+]
