@@ -176,6 +176,22 @@
         .magnific { background: #ff4d8d; box-shadow: 0 0 10px rgba(255, 77, 141, 0.2); }
         .dreamina { background: #b06bff; box-shadow: 0 0 10px rgba(176, 107, 255, 0.2); }
         .flora { background: #f5a623; box-shadow: 0 0 10px rgba(245, 166, 35, 0.2); }
+        .midjourney { background: #8a8a9a; box-shadow: 0 0 10px rgba(138, 138, 154, 0.2); }
+        .openai { background: #10a37f; box-shadow: 0 0 10px rgba(16, 163, 127, 0.2); }
+        .flux { background: #e60067; box-shadow: 0 0 10px rgba(230, 0, 103, 0.2); }
+        .stability { background: #7c3bed; box-shadow: 0 0 10px rgba(124, 59, 237, 0.2); }
+        .runway { background: #ff5c00; box-shadow: 0 0 10px rgba(255, 92, 0, 0.2); }
+        .luma { background: #ff00ff; box-shadow: 0 0 10px rgba(255, 0, 255, 0.2); }
+        .hailuo { background: #00c8ff; box-shadow: 0 0 10px rgba(0, 200, 255, 0.2); }
+        .ideogram { background: #ffaa00; box-shadow: 0 0 10px rgba(255, 170, 0, 0.2); }
+        .recraft { background: #00e575; box-shadow: 0 0 10px rgba(0, 229, 117, 0.2); }
+        .adobe { background: #ff0000; box-shadow: 0 0 10px rgba(255, 0, 0, 0.2); }
+        .imagen { background: #4285f4; box-shadow: 0 0 10px rgba(66, 133, 244, 0.2); }
+        .grok { background: #ffffff; box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+        .nanbanan2 { background: #ffe135; box-shadow: 0 0 10px rgba(255, 225, 53, 0.2); }
+        .nanbananpro { background: #ffd700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
+        .seedream5 { background: #ff3366; box-shadow: 0 0 10px rgba(255, 51, 102, 0.2); }
+        .flux2max { background: #a80082; box-shadow: 0 0 10px rgba(168, 0, 130, 0.2); }
 
         .empty {
             color: var(--text-muted);
@@ -283,28 +299,62 @@
                 </a>
 
                 <span class="section-tag" style="margin-bottom: 1.5rem; display: inline-block;">Rechner & Analysen</span>
-                <h1 class="event-detail-title">Video-Plattform Kostenvergleich</h1>
+                <h1 class="event-detail-title">KI-Modell Kostenvergleich</h1>
                 <div class="text-gradient-warm" style="font-size: 1.1rem; font-family: var(--font-heading); font-weight: 500; margin-bottom: 2rem;">
-                    Euro pro 10-Sekunden-Clip · Stand 11.06.2026 · 1 USD = 0,86 € · Logarithmische Skala · Filter beliebig kombinierbar
+                    Euro pro Generation (10s Clip für Video / 1 Bild für Image) · Stand 11.06.2026 · Logarithmische Skala · Filter beliebig kombinierbar
                 </div>
 
                 <div class="calc-wrap">
                     <div class="filters">
                         <div class="fgroup">
-                            <div class="ftitle">Auflösung</div>
-                            <div class="chips" data-f="res">
+                            <div class="ftitle">Medientyp</div>
+                            <div class="chips" data-f="type">
                                 <button class="chip on" data-v="alle">Alle</button>
-                                <button class="chip" data-v="1080p">Nur 1080p</button>
-                                <button class="chip" data-v="720p">Nur 720p</button>
+                                <button class="chip" data-v="video">Video</button>
+                                <button class="chip" data-v="image">Bild</button>
                             </div>
                         </div>
                         <div class="fgroup">
+                            <div class="ftitle">Auflösung</div>
+                            <div class="chips" data-f="res">
+                                <button class="chip on" data-v="alle">Alle</button>
+                                <button class="chip" data-v="1080p">1080p</button>
+                                <button class="chip" data-v="720p">720p</button>
+                                <button class="chip" data-v="1024px">1024px</button>
+                                <button class="chip" data-v="HD">HD</button>
+                                <button class="chip" data-v="Vector">Vector</button>
+                                <button class="chip" data-v="2K">2K</button>
+                                <button class="chip" data-v="4K">4K</button>
+                            </div>
+                        </div>
+                        <div class="fgroup" style="flex: 1 1 100%;">
                             <div class="ftitle">Modell</div>
                             <div class="chips" data-f="model">
                                 <button class="chip on" data-v="alle">Alle</button>
-                                <button class="chip" data-v="Seedance 2.0">Seedance 2.0</button>
-                                <button class="chip" data-v="Seedance 2.0 Fast">Seedance 2.0 Fast</button>
                                 <button class="chip" data-v="Kling 3.0">Kling 3.0</button>
+                                <button class="chip" data-v="Seedance 2.0">Seedance 2.0</button>
+                                <button class="chip" data-v="Seedance 2.0 Fast">Seedance Fast</button>
+                                <button class="chip" data-v="Midjourney v6">Midjourney v6</button>
+                                <button class="chip" data-v="DALL-E 3">DALL-E 3</button>
+                                <button class="chip" data-v="FLUX.1 Pro">FLUX Pro</button>
+                                <button class="chip" data-v="FLUX.1 Dev">FLUX Dev</button>
+                                <button class="chip" data-v="FLUX.1 Schnell">FLUX Schnell</button>
+                                <button class="chip" data-v="Stable Diffusion 3.5">SD 3.5</button>
+                                <button class="chip" data-v="Runway Gen-3">Runway Gen-3</button>
+                                <button class="chip" data-v="Runway Gen-3 Turbo">Runway Turbo</button>
+                                <button class="chip" data-v="Runway Gen-4.5">Runway Gen-4.5</button>
+                                <button class="chip" data-v="Luma Ray 3.2">Luma Ray 3.2</button>
+                                <button class="chip" data-v="MiniMax Hailuo 2.3">Hailuo 2.3</button>
+                                <button class="chip" data-v="Imagen 3">Imagen 3</button>
+                                <button class="chip" data-v="Grok Imagine">Grok</button>
+                                <button class="chip" data-v="Ideogram v4">Ideogram v4</button>
+                                <button class="chip" data-v="Recraft v3">Recraft v3</button>
+                                <button class="chip" data-v="Adobe Firefly v3">Firefly v3</button>
+                                <button class="chip" data-v="Nano Banana 2">Nano Banana 2</button>
+                                <button class="chip" data-v="Nano Banana Pro">Nano Banana Pro</button>
+                                <button class="chip" data-v="Seedream v5">Seedream v5</button>
+                                <button class="chip" data-v="FLUX.2 [max]">FLUX.2 Max</button>
+                                <button class="chip" data-v="GPT Image 2">GPT Image 2</button>
                             </div>
                         </div>
                         <div class="fgroup">
@@ -312,7 +362,7 @@
                             <div class="chips" data-f="ref">
                                 <button class="chip on" data-v="alle">Alle</button>
                                 <button class="chip" data-v="ohne">Ohne Ref</button>
-                                <button class="chip" data-v="bild">Bild/Start-Frame</button>
+                                <button class="chip" data-v="bild">Bild-Ref</button>
                                 <button class="chip" data-v="video">Video-Ref</button>
                             </div>
                         </div>
@@ -320,21 +370,36 @@
                             <div class="ftitle">Abo-Bindung</div>
                             <div class="chips" data-f="bind">
                                 <button class="chip on" data-v="alle">Alle</button>
-                                <button class="chip" data-v="monat">Monatlich/flexibel</button>
+                                <button class="chip" data-v="monat">Monatlich/API</button>
                                 <button class="chip" data-v="jahr">Jährlich/Pool</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="chart" id="chart"></div>
-
                     <div class="legend">
                         <div class="leg"><span class="dot higgs"></span>Higgsfield</div>
                         <div class="leg"><span class="dot klingd"></span>Kling direkt</div>
                         <div class="leg"><span class="dot dreamina"></span>Dreamina</div>
                         <div class="leg"><span class="dot flora"></span>Flora</div>
-                        <div class="leg"><span class="dot magnific"></span>Magnific Enterprise</div>
-                        <div class="leg"><span class="dot api"></span>API</div>
+                        <div class="leg"><span class="dot magnific"></span>Magnific</div>
+                        <div class="leg"><span class="dot api"></span>APIs</div>
+                        <div class="leg"><span class="dot midjourney"></span>Midjourney</div>
+                        <div class="leg"><span class="dot openai"></span>OpenAI</div>
+                        <div class="leg"><span class="dot flux"></span>FLUX</div>
+                        <div class="leg"><span class="dot stability"></span>SD 3.5</div>
+                        <div class="leg"><span class="dot runway"></span>Runway</div>
+                        <div class="leg"><span class="dot luma"></span>Luma</div>
+                        <div class="leg"><span class="dot hailuo"></span>MiniMax</div>
+                        <div class="leg"><span class="dot ideogram"></span>Ideogram</div>
+                        <div class="leg"><span class="dot recraft"></span>Recraft</div>
+                        <div class="leg"><span class="dot adobe"></span>Adobe</div>
+                        <div class="leg"><span class="dot imagen"></span>Imagen</div>
+                        <div class="leg"><span class="dot grok"></span>Grok</div>
+                        <div class="leg"><span class="dot nanbanan2"></span>N. Banana 2</div>
+                        <div class="leg"><span class="dot nanbananpro"></span>N. Banana Pro</div>
+                        <div class="leg"><span class="dot seedream5"></span>Seedream v5</div>
+                        <div class="leg"><span class="dot flux2max"></span>FLUX.2 Max</div>
                     </div>
                     <div class="foot">
                         * Flora: Clip-Dauer/Auflösung unbestätigt (Annahme 5s) · Higgsfield 1,81 € = Aktionspreis (regulär 2,41 €) · Abo-Verfall nicht eingepreist: Monats-Credits verfallen bei Higgsfield/Kling/Dreamina/Flora, nicht bei Magnific-Pool & API.
@@ -391,13 +456,16 @@
     <script src="script.js"></script>
     <script>
         let DATA = [];
-        const state = { res: 'alle', model: 'alle', ref: 'alle', bind: 'alle' };
-        const min = 0.1, max = 30;
+        const state = { type: 'alle', res: 'alle', model: 'alle', ref: 'alle', bind: 'alle' };
+        const min = 0.001, max = 30;
         const lg = x => Math.max(0.01, (Math.log10(x) - Math.log10(min)) / (Math.log10(max) - Math.log10(min)));
+        
+        const formatPrice = v => v < 0.01 ? v.toFixed(4) : (v < 0.1 ? v.toFixed(3) : v.toFixed(2));
 
         function render() {
             const el = document.getElementById('chart'); el.innerHTML = '';
             const rows = DATA.filter(d =>
+                (state.type === 'alle' || d.type === state.type) &&
                 (state.res === 'alle' || d.res === state.res) &&
                 (state.model === 'alle' || d.model === state.model) &&
                 (state.ref === 'alle' || d.ref === state.ref) &&
@@ -410,12 +478,12 @@
       <div class="label">${d.n}<br><span class="res">${d.d}</span></div>
       <div class="barwrap">
         <div class="bar ${d.c}" style="width:${(lg(d.v) * 100).toFixed(1)}%"></div>
-        <span class="val-out">${d.v.toFixed(2).replace('.', ',')} €</span>
+        <span class="val-out">${formatPrice(d.v).replace('.', ',')} €</span>
       </div>`;
                 el.appendChild(row);
             });
             const axis = document.createElement('div'); axis.className = 'axis';
-            axis.textContent = '0,10 €        1 €        10 €   (log.)';
+            axis.textContent = '0,001 €        0,01 €        0,10 €        1 €        10 €   (log.)';
             el.appendChild(axis);
         }
         document.querySelectorAll('.chips').forEach(group => {
@@ -441,23 +509,13 @@
             .catch(err => {
                 console.warn("Could not fetch data.json, using fallback static data:", err);
                 DATA = [
-                    { n: 'API – Atlas Cloud Fast', d: 'Seedance 2.0 Fast · 720p · ohne Ref', v: 0.19, c: 'api', res: '720p', model: 'Seedance 2.0 Fast', ref: 'ohne', bind: 'jahr' },
-                    { n: 'Higgsfield Ultra (jährlich)', d: 'Kling 3.0 · 720p · ohne Ref', v: 0.24, c: 'higgs', res: '720p', model: 'Kling 3.0', ref: 'ohne', bind: 'jahr' },
-                    { n: 'Higgsfield Ultra (jährlich)', d: 'Seedance 2.0 Fast · 720p · ohne Ref', v: 0.46, c: 'higgs', res: '720p', model: 'Seedance 2.0 Fast', ref: 'ohne', bind: 'jahr' },
-                    { n: 'Kling direkt – Ultra (jährlich)', d: 'Kling 3.0 · 1080p · Start-Frame', v: 0.47, c: 'klingd', res: '1080p', model: 'Kling 3.0', ref: 'bild', bind: 'jahr' },
-                    { n: 'Kling direkt – Premier (jährlich)', d: 'Kling 3.0 · 1080p · Start-Frame', v: 0.78, c: 'klingd', res: '1080p', model: 'Kling 3.0', ref: 'bild', bind: 'jahr' },
-                    { n: 'Higgsfield Ultra (jährlich)', d: 'Seedance 2.0 · 720p · ohne Ref', v: 0.88, c: 'higgs', res: '720p', model: 'Seedance 2.0', ref: 'ohne', bind: 'jahr' },
-                    { n: 'Kling direkt – Premier (monatlich)', d: 'Kling 3.0 · 1080p · Start-Frame', v: 1.04, c: 'klingd', res: '1080p', model: 'Kling 3.0', ref: 'bild', bind: 'monat' },
-                    { n: 'API – ByteDance offiziell', d: 'Seedance 2.0 · 1080p · ohne Ref', v: 1.20, c: 'api', res: '1080p', model: 'Seedance 2.0', ref: 'ohne', bind: 'monat' },
-                    { n: 'API – EvoLink Standard', d: 'Seedance 2.0 · 720p · ohne Ref', v: 1.40, c: 'api', res: '720p', model: 'Seedance 2.0', ref: 'ohne', bind: 'monat' },
-                    { n: 'Higgsfield Ultra (jährlich, Aktion)', d: 'Seedance 2.0 · 1080p · ohne Ref · 90 Cr', v: 1.81, c: 'higgs', res: '1080p', model: 'Seedance 2.0', ref: 'ohne', bind: 'jahr' },
-                    { n: 'Kling über Magnific Enterprise', d: 'Kling 3.0 · 720p · Start-Frame, Sound', v: 2.18, c: 'magnific', res: '720p', model: 'Kling 3.0', ref: 'bild', bind: 'jahr' },
-                    { n: 'Higgsfield Ultra (jährlich, regulär)', d: 'Seedance 2.0 · 1080p · ohne Ref · 120 Cr', v: 2.41, c: 'higgs', res: '1080p', model: 'Seedance 2.0', ref: 'ohne', bind: 'jahr' },
-                    { n: 'Flora Pro *', d: 'Seedance 2.0 · Spec unbestätigt (Annahme 5s)', v: 3.12, c: 'flora', res: '1080p', model: 'Seedance 2.0', ref: 'ohne', bind: 'monat' },
-                    { n: 'Higgsfield Ultra (monatlich, Aktion)', d: 'Seedance 2.0 · 1080p · ohne Ref', v: 3.33, c: 'higgs', res: '1080p', model: 'Seedance 2.0', ref: 'ohne', bind: 'monat' },
-                    { n: 'Dreamina Advanced', d: 'Seedance 2.0 · 1080p · Video-Ref', v: 5.79, c: 'dreamina', res: '1080p', model: 'Seedance 2.0', ref: 'video', bind: 'monat' },
-                    { n: 'Magnific Enterprise (Bild-Ref)', d: 'Seedance 2.0 · 1080p · Sound · 7.085 Cr', v: 14.74, c: 'magnific', res: '1080p', model: 'Seedance 2.0', ref: 'bild', bind: 'jahr' },
-                    { n: 'Magnific Enterprise (Video-Ref)', d: 'Seedance 2.0 · 1080p · 10.000 Cr', v: 20.80, c: 'magnific', res: '1080p', model: 'Seedance 2.0', ref: 'video', bind: 'jahr' }
+                    { "n": "API – Atlas Cloud Fast", "d": "Seedance 2.0 Fast · 720p · ohne Ref", "v": 0.19, "c": "api", "res": "720p", "model": "Seedance 2.0 Fast", "ref": "ohne", "bind": "jahr", "type": "video" },
+                    { "n": "Luma Ray 3.2 720p (monatlich)", "d": "Ray 3.2 · 10s · standard", "v": 0.26, "c": "luma", "res": "720p", "model": "Luma Ray 3.2", "ref": "ohne", "bind": "monat", "type": "video" },
+                    { "n": "Kling direkt – Ultra (jährlich)", "d": "Kling 3.0 · 1080p · Start-Frame", "v": 0.47, "c": "klingd", "res": "1080p", "model": "Kling 3.0", "ref": "bild", "bind": "jahr", "type": "video" },
+                    { "n": "Runway Gen-3 Alpha (jährlich)", "d": "Gen-3 Alpha · 10s · standard", "v": 1.65, "c": "runway", "res": "720p", "model": "Runway Gen-3", "ref": "ohne", "bind": "jahr", "type": "video" },
+                    { "n": "FLUX.1 [Schnell] (API)", "d": "Replicate API · Sehr schnell · 4 Steps", "v": 0.0026, "c": "flux", "res": "1024px", "model": "FLUX.1 Schnell", "ref": "ohne", "bind": "monat", "type": "image" },
+                    { "n": "OpenAI GPT Image 2 Standard (API)", "d": "GPT Image 2 · Medium-Qualität", "v": 0.043, "c": "openai", "res": "1024px", "model": "GPT Image 2", "ref": "ohne", "bind": "monat", "type": "image" },
+                    { "n": "Google Nano Banana Pro (API)", "d": "Gemini 3 Pro Image · Hohe Qualität", "v": 0.120, "c": "nanbananpro", "res": "2K", "model": "Nano Banana Pro", "ref": "ohne", "bind": "monat", "type": "image" }
                 ];
                 render();
             });
