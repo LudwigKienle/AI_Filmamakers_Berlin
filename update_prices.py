@@ -80,7 +80,7 @@ Keep the exact same schema structure:
   ...
 ]
 
-Return ONLY the updated JSON array in your response. No markdown code blocks, no explanation, just raw valid JSON.
+Return the updated JSON array wrapped inside a markdown code block (e.g. ```json ... ```). Do not add any extra explanations, just the code block with the JSON array.
 """
 
     print("Querying Gemini with Google Search grounding...")
@@ -90,22 +90,18 @@ Return ONLY the updated JSON array in your response. No markdown code blocks, no
             contents=prompt,
             config=types.GenerateContentConfig(
                 tools=[{"google_search": {}}],
-                response_mime_type="application/json"
             ),
         )
         
         # Parse output to verify it's valid JSON
         result_text = response.text.strip()
         
-        # Clean any potential markdown wrapping if the model ignored response_mime_type instructions
-        if result_text.startswith("```json"):
-            result_text = result_text[7:]
-        if result_text.startswith("```"):
-            result_text = result_text[3:]
-        if result_text.endswith("```"):
-            result_text = result_text[:-3]
-        result_text = result_text.strip()
-
+        # Extract content between ```json and ```
+        if "```json" in result_text:
+            result_text = result_text.split("```json")[1].split("```")[0].strip()
+        elif "```" in result_text:
+            result_text = result_text.split("```")[1].split("```")[0].strip()
+        
         updated_data = json.loads(result_text)
         
         # Write back to file
