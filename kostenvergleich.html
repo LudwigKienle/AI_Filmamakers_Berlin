@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video-Plattform Kostenvergleich | AI Filmmakers Berlin</title>
+    <meta name="description" content="Interaktiver Kostenvergleich für KI-Videoplattformen. Berechne und vergleiche die Preise pro 10-Sekunden-Clip nach Auflösung, Modell und Abo-Bindung.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="favicon.jpg.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .event-detail-section {
+            padding: 160px 0 100px;
+            position: relative;
+        }
+
+        .event-detail-content {
+            max-width: 1040px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .event-detail-title {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .calc-wrap {
+            margin-top: 2.5rem;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            backdrop-filter: blur(var(--glass-blur));
+        }
+
+        .fgroup {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1 1 200px;
+        }
+
+        .ftitle {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--text-secondary);
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            font-size: 12px;
+            padding: 6px 14px;
+            border-radius: 99px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: var(--font-body);
+        }
+
+        .chip:hover {
+            border-color: var(--text-secondary);
+            color: var(--text-primary);
+        }
+
+        .chip.on {
+            background: var(--accent-blue-dim);
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            font-weight: 600;
+            box-shadow: 0 0 12px var(--accent-blue-glow);
+        }
+
+        .chart {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px 28px 20px;
+            min-height: 120px;
+            backdrop-filter: blur(var(--glass-blur));
+            box-shadow: var(--shadow-md);
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            gap: 16px;
+        }
+
+        .label {
+            width: 280px;
+            font-size: 13px;
+            text-align: right;
+            color: var(--text-primary);
+            flex-shrink: 0;
+            line-height: 1.4;
+        }
+
+        .label .res {
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        .barwrap {
+            flex: 1;
+            position: relative;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 5px;
+        }
+
+        .bar {
+            height: 25px;
+            border-radius: 5px;
+            min-width: 6px;
+            transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .val-out {
+            position: absolute;
+            left: calc(100% + 10px);
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12.5px;
+            font-weight: 600;
+            white-space: nowrap;
+            color: var(--text-primary);
+        }
+
+        /* Platform Colors */
+        .api { background: #3ad1c8; box-shadow: 0 0 10px rgba(58, 209, 200, 0.2); }
+        .higgs { background: #c6f24e; box-shadow: 0 0 10px rgba(198, 242, 78, 0.2); }
+        .klingd { background: #5b8cff; box-shadow: 0 0 10px rgba(91, 140, 255, 0.2); }
+        .magnific { background: #ff4d8d; box-shadow: 0 0 10px rgba(255, 77, 141, 0.2); }
+        .dreamina { background: #b06bff; box-shadow: 0 0 10px rgba(176, 107, 255, 0.2); }
+        .flora { background: #f5a623; box-shadow: 0 0 10px rgba(245, 166, 35, 0.2); }
+
+        .empty {
+            color: var(--text-muted);
+            font-size: 13px;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .axis {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-left: 296px;
+            margin-top: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 24px;
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            padding: 16px 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(var(--glass-blur));
+        }
+
+        .leg {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 3px;
+        }
+
+        .foot {
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                margin-bottom: 20px;
+            }
+
+            .label {
+                width: 100%;
+                text-align: left;
+            }
+
+            .barwrap {
+                width: calc(100% - 70px);
+            }
+
+            .axis {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Film Grain Overlay -->
+    <div class="film-grain" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="AI Filmmakers Berlin" class="logo-img">
+                <span class="logo-text">AI Filmmakers <span class="logo-accent">Berlin</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="index.html#showcase">Showcase</a></li>
+                <li><a href="index.html#community">Community</a></li>
+                <li><a href="kostenvergleich.html" class="active">Kostenvergleich</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Event Detail Section -->
+    <section class="event-detail-section">
+        <div class="bg-decoration bg-orb bg-orb-blue" style="top: 10%; right: 10%;"></div>
+        <div class="container">
+            <div class="event-detail-content">
+                <a href="index.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19L5 12L12 5" />
+                    </svg>
+                    Zurück zur Startseite
+                </a>
+
+                <span class="section-tag" style="margin-bottom: 1.5rem; display: inline-block;">Rechner & Analysen</span>
+                <h1 class="event-detail-title">Video-Plattform Kostenvergleich</h1>
+                <div class="text-gradient-warm" style="font-size: 1.1rem; font-family: var(--font-heading); font-weight: 500; margin-bottom: 2rem;">
+                    Euro pro 10-Sekunden-Clip · Stand 11.06.2026 · 1 USD = 0,86 € · Logarithmische Skala · Filter beliebig kombinierbar
+                </div>
+
+                <div class="calc-wrap">
+                    <div class="filters">
+                        <div class="fgroup">
+                            <div class="ftitle">Auflösung</div>
+                            <div class="chips" data-f="res">
+                                <button class="chip on" data-v="alle">Alle</button>
+                                <button class="chip" data-v="1080p">Nur 1080p</button>
+                                <button class="chip" data-v="720p">Nur 720p</button>
+                            </div>
+                        </div>
+                        <div class="fgroup">
+                            <div class="ftitle">Modell</div>
+                            <div class="chips" data-f="model">
+                                <button class="chip on" data-v="alle">Alle</button>
+                                <button class="chip" data-v="Seedance 2.0">Seedance 2.0</button>
+                                <button class="chip" data-v="Seedance 2.0 Fast">Seedance 2.0 Fast</button>
+                                <button class="chip" data-v="Kling 3.0">Kling 3.0</button>
+                            </div>
+                        </div>
+                        <div class="fgroup">
+                            <div class="ftitle">Referenz</div>
+                            <div class="chips" data-f="ref">
+                                <button class="chip on" data-v="alle">Alle</button>
+                                <button class="chip" data-v="ohne">Ohne Ref</button>
+                                <button class="chip" data-v="bild">Bild/Start-Frame</button>
+                                <button class="chip" data-v="video">Video-Ref</button>
+                            </div>
+                        </div>
+                        <div class="fgroup">
+                            <div class="ftitle">Abo-Bindung</div>
+                            <div class="chips" data-f="bind">
+                                <button class="chip on" data-v="alle">Alle</button>
+                                <button class="chip" data-v="monat">Monatlich/flexibel</button>
+                                <button class="chip" data-v="jahr">Jährlich/Pool</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart" id="chart"></div>
+
+                    <div class="legend">
+                        <div class="leg"><span class="dot higgs"></span>Higgsfield</div>
+                        <div class="leg"><span class="dot klingd"></span>Kling direkt</div>
+                        <div class="leg"><span class="dot dreamina"></span>Dreamina</div>
+                        <div class="leg"><span class="dot flora"></span>Flora</div>
+                        <div class="leg"><span class="dot magnific"></span>Magnific Enterprise</div>
+                        <div class="leg"><span class="dot api"></span>API</div>
+                    </div>
+                    <div class="foot">
+                        * Flora: Clip-Dauer/Auflösung unbestätigt (Annahme 5s) · Higgsfield 1,81 € = Aktionspreis (regulär 2,41 €) · Abo-Verfall nicht eingepreist: Monats-Credits verfallen bei Higgsfield/Kling/Dreamina/Flora, nicht bei Magnific-Pool & API.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <div class="footer-brand">
+                        <img src="logo.png" alt="AI Filmmakers Berlin" class="logo-img">
+                        <span class="logo-text">AI Filmmakers <span class="logo-accent">Berlin</span></span>
+                    </div>
+                    <p class="footer-text">A community by filmmakers, for filmmakers — exploring the future of AI cinema in Berlin and beyond.</p>
+                    <div class="footer-address">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <span>Wildenbruchstr. 87, 12045 Berlin</span>
+                    </div>
+                </div>
+                <div class="footer-nav-col">
+                    <h4 class="footer-heading">Navigate</h4>
+                    <ul class="footer-nav">
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#events">Events</a></li>
+                        <li><a href="index.html#showcase">Showcase</a></li>
+                        <li><a href="index.html#community">Community</a></li>
+                        <li><a href="kostenvergleich.html">Kostenvergleich</a></li>
+                    </ul>
+                </div>
+                <div class="footer-connect-col">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <p class="footer-copyright">&copy; 2026 AI Filmmakers Berlin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="site-config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const DATA = [
+            { n: 'API – Atlas Cloud Fast', d: 'Seedance 2.0 Fast · 720p · ohne Ref', v: 0.19, c: 'api', res: '720p', model: 'Seedance 2.0 Fast', ref: 'ohne', bind: 'jahr' },
+            { n: 'Higgsfield Ultra (jährlich)', d: 'Kling 3.0 · 720p · ohne Ref', v: 0.24, c: 'higgs', res: '720p', model: 'Kling 3.0', ref: 'ohne', bind: 'jahr' },
+            { n: 'Higgsfield Ultra (jährlich)', d: 'Seedance 2.0 Fast · 720p · ohne Ref', v: 0.46, c: 'higgs', res: '720p', model: 'Seedance 2.0 Fast', ref: 'ohne', bind: 'jahr' },
+            { n: 'Kling direkt – Ultra (jährlich)', d: 'Kling 3.0 · 1080p · Start-Frame', v: 0.47, c: 'klingd', res: '1080p', model: 'Kling 3.0', ref: 'bild', bind: 'jahr' },
+            { n: 'Kling direkt – Premier (jährlich)', d: 'Kling 3.0 · 1080p · Start-Frame', v: 0.78, c: 'klingd', res: '1080p', model: 'Kling 3.0', ref: 'bild', bind: 'jahr' },
+            { n: 'Higgsfield Ultra (jährlich)', d: 'Seedance 2.0 · 720p · ohne Ref', v: 0.88, c: 'higgs', res: '720p', model: 'Seedance 2.0', ref: 'ohne', bind: 'jahr' },
+            { n: 'Kling direkt – Premier (monatlich)', d: 'Kling 3.0 · 1080p · Start-Frame', v: 1.04, c: 'klingd', res: '1080p', model: 'Kling 3.0', ref: 'bild', bind: 'monat' },
+            { n: 'API – ByteDance offiziell', d: 'Seedance 2.0 · 1080p · ohne Ref', v: 1.20, c: 'api', res: '1080p', model: 'Seedance 2.0', ref: 'ohne', bind: 'monat' },
+            { n: 'API – EvoLink Standard', d: 'Seedance 2.0 · 720p · ohne Ref', v: 1.40, c: 'api', res: '720p', model: 'Seedance 2.0', ref: 'ohne', bind: 'monat' },
+            { n: 'Higgsfield Ultra (jährlich, Aktion)', d: 'Seedance 2.0 · 1080p · ohne Ref · 90 Cr', v: 1.81, c: 'higgs', res: '1080p', model: 'Seedance 2.0', ref: 'ohne', bind: 'jahr' },
+            { n: 'Kling über Magnific Enterprise', d: 'Kling 3.0 · 720p · Start-Frame, Sound', v: 2.18, c: 'magnific', res: '720p', model: 'Kling 3.0', ref: 'bild', bind: 'jahr' },
+            { n: 'Higgsfield Ultra (jährlich, regulär)', d: 'Seedance 2.0 · 1080p · ohne Ref · 120 Cr', v: 2.41, c: 'higgs', res: '1080p', model: 'Seedance 2.0', ref: 'ohne', bind: 'jahr' },
+            { n: 'Flora Pro *', d: 'Seedance 2.0 · Spec unbestätigt (Annahme 5s)', v: 3.12, c: 'flora', res: '1080p', model: 'Seedance 2.0', ref: 'ohne', bind: 'monat' },
+            { n: 'Higgsfield Ultra (monatlich, Aktion)', d: 'Seedance 2.0 · 1080p · ohne Ref', v: 3.33, c: 'higgs', res: '1080p', model: 'Seedance 2.0', ref: 'ohne', bind: 'monat' },
+            { n: 'Dreamina Advanced', d: 'Seedance 2.0 · 1080p · Video-Ref', v: 5.79, c: 'dreamina', res: '1080p', model: 'Seedance 2.0', ref: 'video', bind: 'monat' },
+            { n: 'Magnific Enterprise (Bild-Ref)', d: 'Seedance 2.0 · 1080p · Sound · 7.085 Cr', v: 14.74, c: 'magnific', res: '1080p', model: 'Seedance 2.0', ref: 'bild', bind: 'jahr' },
+            { n: 'Magnific Enterprise (Video-Ref)', d: 'Seedance 2.0 · 1080p · 10.000 Cr', v: 20.80, c: 'magnific', res: '1080p', model: 'Seedance 2.0', ref: 'video', bind: 'jahr' },
+        ];
+        const state = { res: 'alle', model: 'alle', ref: 'alle', bind: 'alle' };
+        const min = 0.1, max = 30;
+        const lg = x => Math.max(0.01, (Math.log10(x) - Math.log10(min)) / (Math.log10(max) - Math.log10(min)));
+
+        function render() {
+            const el = document.getElementById('chart'); el.innerHTML = '';
+            const rows = DATA.filter(d =>
+                (state.res === 'alle' || d.res === state.res) &&
+                (state.model === 'alle' || d.model === state.model) &&
+                (state.ref === 'alle' || d.ref === state.ref) &&
+                (state.bind === 'alle' || d.bind === state.bind)
+            ).sort((a, b) => a.v - b.v);
+            if (!rows.length) { el.innerHTML = '<div class="empty">Keine Einträge für diese Filter-Kombination.</div>'; return; }
+            rows.forEach(d => {
+                const row = document.createElement('div'); row.className = 'row';
+                row.innerHTML = `
+      <div class="label">${d.n}<br><span class="res">${d.d}</span></div>
+      <div class="barwrap">
+        <div class="bar ${d.c}" style="width:${(lg(d.v) * 100).toFixed(1)}%"></div>
+        <span class="val-out">${d.v.toFixed(2).replace('.', ',')} €</span>
+      </div>`;
+                el.appendChild(row);
+            });
+            const axis = document.createElement('div'); axis.className = 'axis';
+            axis.textContent = '0,10 €        1 €        10 €   (log.)';
+            el.appendChild(axis);
+        }
+        document.querySelectorAll('.chips').forEach(group => {
+            group.addEventListener('click', e => {
+                const btn = e.target.closest('.chip'); if (!btn) return;
+                group.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+                btn.classList.add('on');
+                state[group.dataset.f] = btn.dataset.v;
+                render();
+            });
+        });
+        render();
+    </script>
+</body>
+
+</html>
