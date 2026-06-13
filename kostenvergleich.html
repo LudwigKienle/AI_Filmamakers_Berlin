@@ -367,11 +367,11 @@
                             </div>
                         </div>
                         <div class="fgroup">
-                            <div class="ftitle">Abo-Bindung</div>
-                            <div class="chips" data-f="bind">
+                            <div class="ftitle">Bezahlmodell</div>
+                            <div class="chips" data-f="pay">
                                 <button class="chip on" data-v="alle">Alle</button>
-                                <button class="chip" data-v="monat">Monatlich/API</button>
-                                <button class="chip" data-v="jahr">Jährlich/Pool</button>
+                                <button class="chip" data-v="abo">Abo (Credits verfallen)</button>
+                                <button class="chip" data-v="payuse">Pay-per-use / Pool</button>
                             </div>
                         </div>
                     </div>
@@ -383,7 +383,7 @@
                         <div class="leg"><span class="dot dreamina"></span>Dreamina</div>
                         <div class="leg"><span class="dot flora"></span>Flora</div>
                         <div class="leg"><span class="dot magnific"></span>Magnific</div>
-                        <div class="leg"><span class="dot api"></span>APIs</div>
+                        <div class="leg"><span class="dot api"></span>APIs (fal, Replicate, Atlas, EvoLink)</div>
                         <div class="leg"><span class="dot midjourney"></span>Midjourney</div>
                         <div class="leg"><span class="dot openai"></span>OpenAI</div>
                         <div class="leg"><span class="dot flux"></span>FLUX</div>
@@ -402,7 +402,11 @@
                         <div class="leg"><span class="dot flux2max"></span>FLUX.2 Max</div>
                     </div>
                     <div class="foot">
-                        * Flora: Clip-Dauer/Auflösung unbestätigt (Annahme 5s) · Higgsfield 1,81 € = Aktionspreis (regulär 2,41 €) · Abo-Verfall nicht eingepreist: Monats-Credits verfallen bei Higgsfield/Kling/Dreamina/Flora, nicht bei Magnific-Pool & API.
+                        * Flora: Clip-Spezifikation unbestätigt (Annahme 5s) · Higgsfield 1,81 € = Aktionspreis (regulär 2,41 €) ·
+                        ByteDance/Volcengine-Direktwert (1,20 €) = Ableitung vor dem globalen API-Launch, durch verifizierte fal/Replicate-Werte praktisch überholt ·
+                        Nicht gezeigt: Replicate 480p Draft-Tier 0,69 €/10s, Replicate 720p Video-Ref 1,89 €, fal Fast Video-Ref 1,25 € ·
+                        Video-Ref-Tarife gegensätzlich: fal ×0,6 (billiger), Replicate +22 % (teurer), Magnific ca. +40 % ·
+                        "Abo" = Monats-Credits verfallen; "Pay-per-use/Pool" = kein Verfall (Magnific-Pool, alle APIs)
                     </div>
                 </div>
             </div>
@@ -456,7 +460,7 @@
     <script src="script.js"></script>
     <script>
         let DATA = [];
-        const state = { type: 'alle', res: 'alle', model: 'alle', ref: 'alle', bind: 'alle' };
+        const state = { type: 'alle', res: 'alle', model: 'alle', ref: 'alle', pay: 'alle' };
         const min = 0.001, max = 30;
         const lg = x => Math.max(0.01, (Math.log10(x) - Math.log10(min)) / (Math.log10(max) - Math.log10(min)));
         
@@ -469,7 +473,7 @@
                 (state.res === 'alle' || d.res === state.res) &&
                 (state.model === 'alle' || d.model === state.model) &&
                 (state.ref === 'alle' || d.ref === state.ref) &&
-                (state.bind === 'alle' || d.bind === state.bind)
+                (state.pay === 'alle' || d.pay === state.pay)
             ).sort((a, b) => a.v - b.v);
             if (!rows.length) { el.innerHTML = '<div class="empty">Keine Einträge für diese Filter-Kombination.</div>'; return; }
             rows.forEach(d => {
@@ -509,13 +513,13 @@
             .catch(err => {
                 console.warn("Could not fetch data.json, using fallback static data:", err);
                 DATA = [
-                    { "n": "API – Atlas Cloud Fast", "d": "Seedance 2.0 Fast · 720p · ohne Ref", "v": 0.19, "c": "api", "res": "720p", "model": "Seedance 2.0 Fast", "ref": "ohne", "bind": "jahr", "type": "video" },
-                    { "n": "Luma Ray 3.2 720p (monatlich)", "d": "Ray 3.2 · 10s · standard", "v": 0.26, "c": "luma", "res": "720p", "model": "Luma Ray 3.2", "ref": "ohne", "bind": "monat", "type": "video" },
-                    { "n": "Kling direkt – Ultra (jährlich)", "d": "Kling 3.0 · 1080p · Start-Frame", "v": 0.47, "c": "klingd", "res": "1080p", "model": "Kling 3.0", "ref": "bild", "bind": "jahr", "type": "video" },
-                    { "n": "Runway Gen-3 Alpha (jährlich)", "d": "Gen-3 Alpha · 10s · standard", "v": 1.65, "c": "runway", "res": "720p", "model": "Runway Gen-3", "ref": "ohne", "bind": "jahr", "type": "video" },
-                    { "n": "FLUX.1 [Schnell] (API)", "d": "Replicate API · Sehr schnell · 4 Steps", "v": 0.0026, "c": "flux", "res": "1024px", "model": "FLUX.1 Schnell", "ref": "ohne", "bind": "monat", "type": "image" },
-                    { "n": "OpenAI GPT Image 2 Standard (API)", "d": "GPT Image 2 · Medium-Qualität", "v": 0.043, "c": "openai", "res": "1024px", "model": "GPT Image 2", "ref": "ohne", "bind": "monat", "type": "image" },
-                    { "n": "Google Nano Banana Pro (API)", "d": "Gemini 3 Pro Image · Hohe Qualität", "v": 0.120, "c": "nanbananpro", "res": "2K", "model": "Nano Banana Pro", "ref": "ohne", "bind": "monat", "type": "image" }
+                    { "n": "API – Atlas Cloud Fast", "d": "Seedance 2.0 Fast · 720p · ohne Ref", "v": 0.19, "c": "api", "res": "720p", "model": "Seedance 2.0 Fast", "ref": "ohne", "pay": "payuse", "type": "video" },
+                    { "n": "Luma Ray 3.2 720p (monatlich)", "d": "Ray 3.2 · 10s · standard", "v": 0.26, "c": "luma", "res": "720p", "model": "Luma Ray 3.2", "ref": "ohne", "pay": "abo", "type": "video" },
+                    { "n": "Kling direkt – Ultra (jährlich)", "d": "Kling 3.0 · 1080p · Start-Frame", "v": 0.47, "c": "klingd", "res": "1080p", "model": "Kling 3.0", "ref": "bild", "pay": "abo", "type": "video" },
+                    { "n": "Runway Gen-3 Alpha (jährlich)", "d": "Gen-3 Alpha · 10s · standard", "v": 1.65, "c": "runway", "res": "720p", "model": "Runway Gen-3", "ref": "ohne", "pay": "abo", "type": "video" },
+                    { "n": "FLUX.1 [Schnell] (API)", "d": "Replicate API · Sehr schnell · 4 Steps", "v": 0.0026, "c": "flux", "res": "1024px", "model": "FLUX.1 Schnell", "ref": "ohne", "pay": "payuse", "type": "image" },
+                    { "n": "OpenAI GPT Image 2 Standard (API)", "d": "GPT Image 2 · Medium-Qualität", "v": 0.043, "c": "openai", "res": "1024px", "model": "GPT Image 2", "ref": "ohne", "pay": "payuse", "type": "image" },
+                    { "n": "Google Nano Banana Pro (API)", "d": "Gemini 3 Pro Image · Hohe Qualität", "v": 0.120, "c": "nanbananpro", "res": "2K", "model": "Nano Banana Pro", "ref": "ohne", "pay": "payuse", "type": "image" }
                 ];
                 render();
             });

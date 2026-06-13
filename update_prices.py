@@ -103,7 +103,7 @@ Keep the exact same schema structure:
     "res": "Resolution (1080p, 720p, 1024px, HD, Vector, 2K, 4K)",
     "model": "Model (Seedance 2.0, Seedance 2.0 Fast, Kling 3.0, Midjourney v6, DALL-E 3, FLUX.1 Pro, FLUX.1 Dev, FLUX.1 Schnell, Stable Diffusion 3.5, Runway Gen-3, Runway Gen-3 Turbo, Runway Gen-4.5, Luma Ray 3.2, MiniMax Hailuo 2.3, Imagen 3, Grok Imagine, Ideogram v4, Recraft v3, Adobe Firefly v3, Nano Banana 2, Nano Banana Pro, Seedream v5, FLUX.2 [max], GPT Image 2)",
     "ref": "Reference type (ohne, bild, video)",
-    "bind": "Subscription type (jahr, monat)",
+    "pay": "Payment model (abo, payuse)",
     "type": "Media type (video, image)"
   },
   ...
