@@ -911,7 +911,7 @@ section {
     padding-bottom: 2rem;
     /* space for shadow */
     width: max-content;
-    animation: scrollContinuous 30s linear infinite;
+    animation: scrollContinuous 60s linear infinite;
     --scroll-width: -50%;
 }
 
@@ -962,6 +962,10 @@ section {
     display: block;
     border-radius: 14px;
     transition: transform 0.5s ease;
+}
+
+.carousel-slide img.carousel-image-top {
+    object-position: center 20%;
 }
 
 .carousel-slide:hover img {
