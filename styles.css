@@ -1169,6 +1169,83 @@ section {
     transform: scale(1.015);
 }
 
+.event-poster-neuland {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 28px;
+    min-height: 420px;
+    padding: 36px;
+    background:
+        radial-gradient(circle at 85% 10%, rgba(255, 46, 196, 0.35), transparent 45%),
+        radial-gradient(circle at 10% 95%, rgba(60, 255, 196, 0.28), transparent 50%),
+        #050507;
+    color: #f4f4f6;
+    text-decoration: none;
+    transition: border-color var(--transition-base);
+}
+
+.event-poster-neuland:hover {
+    border-color: rgba(60, 255, 196, 0.45);
+}
+
+.neuland-poster-kicker,
+.neuland-poster-footer {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(244, 244, 246, 0.7);
+}
+
+.neuland-poster-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+}
+
+.neuland-poster-sub {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+    color: #3cffc4;
+}
+
+.neuland-poster-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.event-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 16px;
+}
+
+.event-text-link {
+    width: 100%;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.event-text-link:hover {
+    color: var(--accent-blue);
+}
+
+@media (max-width: 480px) {
+    .event-poster-neuland {
+        min-height: 320px;
+        padding: 24px;
+    }
+}
+
 .event-info {
     display: flex;
     flex-direction: column;
